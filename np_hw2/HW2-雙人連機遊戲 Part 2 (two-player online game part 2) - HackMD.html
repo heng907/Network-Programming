@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-themeable="true">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-token" content="jrd6h45F-tbWxKmve_v1pP6RXKvE7n_NxFx8">
+    
+    
+    <meta name="description" content="在 HW1 中兩名玩家直接透過 TCP/UDP 點對點的方式連線，本次作業的目標是要讓玩家不要透過點對點而是透過一個中央 server 的方式進行遊戲，學生需要實作兩個程式 server 以及 client。玩家必須註冊 username 才能玩遊戲並且登入 server 後要能夠建立遊戲房間或加入其他人的房間。">
+    
+    <title>HW2-雙人連機遊戲 Part 2 (two-player online game part 2) - HackMD</title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+	<link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+	<!--  meta value for server side given sign in boolean -->
+    <meta name="signin" content="false">
+
+    
+<script nonce="7116a333-242a-4730-adb8-f0accbc2eaad">
+  window.domain = 'hackmd.io'
+  window.urlpath = ''
+  window.debug = false || window.localStorage.getItem('HMD_DEBUG_FLAG') === 'true'
+  window.version = '1.3.0'
+  window.brand = 'HackMD'
+
+  
+  window.NOTE_ID = 'bojXv-WQRDq3rU0ZRxWEoQ'
+  
+
+  window.GOOGLE_DRIVE_API_KEY = 'AIzaSyAHmcP5gL_64ZafuAYOvJruFAIaYgHQaY4'
+  window.GOOGLE_DRIVE_CLIENT_ID = '65857506266-76uhhee8se8dgs1i0q8fhtj1prg0ar27.apps.googleusercontent.com'
+  window.DROPBOX_APP_KEY = 'rdoizrlnkuha23r'
+  
+  window.PLANTUML_SERVER = 'https://ptuml.hackmd.io'
+
+  window.ASSET_URL = 'https://assets.hackmd.io'
+
+  window.USER_CAN_CREATE_TEAM = true
+  window.USER_CAN_DELETE_ACCOUNT = true
+  window.USER_DELETE_ACCOUNT_VIA_EMAIL = true
+  window.PAYMENT_ENABLED = true
+  window.PAYMENT_PROMOTION_BANNER_ENABLED = false
+  window.GITHUB_SYNC_ENABLED = true
+  window.GITLAB_SYNC_ENABLED = false
+  window.GITLAB_SYNC_BASE_URL = ''
+  window.VCS_SYNC_MODE = 'github'
+  window.VCS_PROVIDER_NAME = 'GitHub'
+  window.FREE_TEAM_NUM = 20
+  window.FREE_TEAM_MEMBER_NUM = 3
+  window.FREE_PUBLIC_TEAM_NUM = 10
+  window.NEO_OVERVIEW_UI = false
+  
+  window.EE_SITE_ENABLE = false
+  window.EE_SITE_NAME = 'false'
+  window.EE_SITE_LINK = 'false'
+  window.EESITE_INFO = false
+  window.ENTERPRISE_DISCOVERY_ENABLE = false
+  window.ENTERPRISE_DISCOVERY_TEAM = true
+  window.ENTERPRISE_DISCOVERY_NOTE = true
+  window.ENTERPRISE_DISCOVERY_VIEW_PERMISSION = 'guest'
+  
+  window.ALLOW_ANONYMOUS = true
+  window.ALLOW_ANONYMOUS_EDIT = false
+  window.ALLOW_DOWNLOAD_PDF = true
+  window.PUBLIC_OVERVIEW = false
+  window.INTERNAL_PUBLIC_OVERVIEW = false
+  window.FULL_TEXT_SEARCH_ENABLE = false
+  window.ALGOLIA_SEARCH_ENABLE = true
+  window.MARKETING_EMAIL_ENABLE = true
+  window.OFFLINE_ACCESS = true
+  
+  
+  
+    window.WALLET_CONNECT_PROJECT_ID = '91d6fa182b725b5895a17a170a5878c1'
+  
+  window.API_MANAGEMENT_UI_ENABLE = true
+  window.FEEDBACK_UI_ENABLE = true
+  window.PUBLISH_ENABLE = true
+
+  
+
+  
+  window.SHOW_HOT_NOTES = false
+  
+
+  
+  window.HOT_NOTES_TIME_TYPE = 'week'
+  
+
+  
+  window.SHOW_OVERVIEW = false
+  
+
+  
+  window.MENTIONS = {}
+  
+
+  
+  window.MENTION_ANCHORS = []
+  
+
+  
+  window.COMMENT_ANCHORS = []
+  
+
+  
+  window.IS_OWNER = false
+  
+
+  
+  window.IS_TEAM_ADMIN = false
+  
+
+  
+  window.IS_INVITEE_ADMIN = false
+  
+
+  
+  window.USER_PROFILE = '%7B%22name%22%3A%22Guest%20Patterson%22%7D'
+  
+
+  
+  window.VERSION_TIME = '1728893401262'
+  
+
+  
+  window.canEdit = false
+  
+
+  
+  window.canWriteComment = false
+  
+
+  
+  window.canHideComment = false
+  
+
+  window.TRASH_NOTE_DELETE_AFTER_FREE = 3
+  window.TRASH_NOTE_DELETE_AFTER_PAID = 30
+
+  
+    window.ENABLED_PREVIEW_FEATURE = {}
+  
+
+  
+    window.IS_OWNER_UPGRADED = false
+  
+
+  
+    window.IMGUR_FALLBACK_CDN = 'https://imgur-backup.hackmd.io'
+  
+
+  
+    window.CLOUD_META_UI = true
+  
+  
+    window.CLOUD_META_API = true
+  
+  
+    window.CLOUD_META_MIGRATION = false
+  
+  
+    window.YAML_METADATA_ENABLED = false
+  
+
+  
+    window.NOTE_CAPACITY_LIMIT = 50
+  
+
+  
+    window.DOCUMENT_MAX_LENGTH = 100000
+  
+
+  
+    window.SOCIAL_NETWORK_FEATURES_ENABLED = true
+  
+
+  
+    window.PUBLISHMENT_MODERATION_ENABLED = true
+  
+
+  
+    window.COMMENT_ENABLED = true
+  
+
+  window.SUGGEST_EDIT_ENABLED = true
+  
+    window.SUGGEST_EDIT_ENABLED = true
+  
+
+  
+    window.REALTIME_CLIENT_WITH_CREDENTIALS = false
+  
+
+  
+    window.COMMENT_ENABLED = true
+  
+
+  
+    window.DEBUG_DISCONNECT_SOCKET_WHEN_OFFLINE = false
+  
+
+  
+
+  
+
+  
+    window.USE_NEW_LOGO = true
+  
+
+  
+    window.ITERABLE_ENABLED = true
+  
+  
+    window.ITERABLE_API_KEY = "c2c36a44c2614fb19aa3b46d660bbce2"
+  
+</script>
+
+
+    
+<!-- Google Tag Manager -->
+<script nonce="7116a333-242a-4730-adb8-f0accbc2eaad">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLW9Z3');</script>
+<!-- End Google Tag Manager -->
+
+
+    
+
+
+
+    <meta property="fb:app_id" content="1436904003272070">
+
+
+
+    <meta name="twitter:image:src" content="https://uploads-public.hackmd.io/upload_743a28d95f93e9cb1c029eafdf1078cf.jpeg">
+    <meta name="twitter:image:alt" content="HW2-雙人連機遊戲 Part 2 (two-player online game part 2) - HackMD">
+
+
+<meta name="twitter:site" content="@hackmdio" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="HW2-雙人連機遊戲 Part 2 (two-player online game part 2) - HackMD" />
+
+
+    <meta name="twitter:description" content="在 HW1 中兩名玩家直接透過 TCP/UDP 點對點的方式連線，本次作業的目標是要讓玩家不要透過點對點而是透過一個中央 server 的方式進行遊戲，學生需要實作兩個程式 server 以及 client。玩家必須註冊 username 才能玩遊戲並且登入 server 後要能夠建立遊戲房間或加入其他人的房間。" />
+
+
+
+    <meta property="og:image" content="https://uploads-public.hackmd.io/upload_743a28d95f93e9cb1c029eafdf1078cf.jpeg">
+    <meta property="og:image:alt" content="HW2-雙人連機遊戲 Part 2 (two-player online game part 2) - HackMD">
+
+
+<meta property="og:site_name" content="HackMD" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="HW2-雙人連機遊戲 Part 2 (two-player online game part 2) - HackMD" />
+
+
+    <meta property="og:description" content="在 HW1 中兩名玩家直接透過 TCP/UDP 點對點的方式連線，本次作業的目標是要讓玩家不要透過點對點而是透過一個中央 server 的方式進行遊戲，學生需要實作兩個程式 server 以及 client。玩家必須註冊 username 才能玩遊戲並且登入 server 後要能夠建立遊戲房間或加入其他人的房間。" />
+
+
+     <link href="https://assets.hackmd.io/build/font-vendor.ea8218d7d4f468b2c430.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/common-vendor.0a08ae20e14fefe857eb.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/pretty-vendor.db0e7b64c54d0a77290f.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/pretty.39da5e463652983376e4.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+
+    
+
+
+    <script defer data-domain="hackmd.io" src="https://plausible.io/js/script.js"></script>
+<script nonce="7116a333-242a-4730-adb8-f0accbc2eaad">
+  window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); }
+  const keyboardWhiteList = ['a', 'span', 'button']
+
+  function getTaggedEventAttributes (e) {
+    const eventAttrs = { name: null, props: {} }
+    if (!e || !e.classList) return eventAttrs
+    const psEvent = /plausible-event-(.+)(=|--)(.+)/
+    for (const className of [...e.classList]) {
+      const [, key, , val] = className.match(psEvent) || []
+      if (!key || !val) continue
+      const value = val.replace(/\+/g, ' ')
+      switch (key.toLowerCase()) {
+        case 'name':
+          eventAttrs.name = value
+          break
+        default:
+          eventAttrs.props[key] = value
+          break
+      }
+    }
+    return eventAttrs
+  }
+
+  function isLocal () {
+    return /^localhost$|^127(\.[0-9]+){0,2}\.[0-9]+$|^\[::1?\]$/.test(location.hostname) || location.protocol === 'file:'
+  }
+
+  function isAutomation () {
+    return Boolean(window._phantom || window.__nightmare || window.navigator.webdriver || window.Cypress)
+  }
+
+  function shouldIgnore () {
+    return isLocal() ||
+      isAutomation() ||
+      window.localStorage.getItem('plausible_ignore') === 'true'
+  }
+
+  function handler (e) {
+    if (!window.plausible) return
+    if (!e.target || !('className' in e.target)) return
+    const ele = e.target
+
+    const eventAttrs = getTaggedEventAttributes(ele)
+    if (!eventAttrs.name) return
+    if (ele?.href) eventAttrs.props.url = ele.href
+
+    if (shouldIgnore()) {
+      if (window.debug) logDebugEventMsg(eventAttrs)
+      return
+    }
+    window.plausible(eventAttrs.name, { props: eventAttrs.props })
+  }
+
+  function logDebugEventMsg (eventAttrs) {
+    console.warn(
+      `Ignoring Event: "${eventAttrs.name}"`,
+      eventAttrs,
+    )
+  }
+
+  function keydownHandler (e) {
+    if (e.key !== 'Enter') return
+    if (e.target.nodeName.toLowerCase() === 'input') {
+      switch (e.target.type.toLowerCase()) {
+        case 'submit':
+        case 'button':
+        case 'reset':
+        case 'checkbox':
+        case 'radio':
+        case 'file':
+        case 'image':
+        case 'color':
+          break
+        default:
+          return
+      }
+    } else if (!keyboardWhiteList.includes(e.target.nodeName.toLowerCase())) {
+      return
+    }
+    handler(e)
+  }
+
+  document.addEventListener('mousedown', handler)
+  document.addEventListener('keydown', keydownHandler)
+</script>
+
+    
+<script nonce="7116a333-242a-4730-adb8-f0accbc2eaad">
+  window.publishProps = JSON.parse(`{"isOwnerAnonymous":false,"isOwnedByTeam":false,"ownerInfo":{"name":"wei0107","path":"wei0107","avatarUrl":"https%3A%2F%2Fuploads-public.hackmd.io%2Fupload_743a28d95f93e9cb1c029eafdf1078cf.jpeg","description":null},"isPublished":false,"createTime":1728278006254,"updateTime":1728893401262,"vcsSyncMode":"github","vcsProviderName":"GitHub","canEdit":false,"hardBreaks":true,"onlyOwnerCanEdit":true,"isCommentEnabled":true,"likedCount":0,"isNotificationEnabled":true,"notificationType":"never","hasEmail":false,"canWriteComment":false,"viewCount":376,"markdown":"%23%20HW2-%E9%9B%99%E4%BA%BA%E9%80%A3%E6%A9%9F%E9%81%8A%E6%88%B2%20Part%202%20(two-player%20online%20game%20part%202)%0A%0A%23%23%20Timeline%0ADemo%20Deadline%202024%2F11%2F11(%E4%B8%80)%20or%202024%2F11%2F14(%E5%9B%9B)%20%E8%A6%96%E6%95%99%E5%AD%B8%E9%80%B2%E5%BA%A6%E8%80%8C%E5%AE%9A%20%0A%0A%23%23%20Introduction%0A%0A%E9%80%99%E6%AC%A1%E4%BD%9C%E6%A5%AD%E7%9A%84%E7%9B%AE%E6%A8%99%E6%98%AF%E6%94%B9%E8%AE%8AHW1%E7%8E%A9%E5%AE%B6%E4%B9%8B%E9%96%93%E7%9A%84%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F%EF%BC%8C%E5%BE%9E%E5%8E%9F%E6%9C%AC%E5%85%A9%E5%90%8D%E7%8E%A9%E5%AE%B6%E9%80%8F%E9%81%8E%20TCP%2FUDP%20%E7%9B%B4%E6%8E%A5%E9%80%B2%E8%A1%8C%E9%BB%9E%E5%B0%8D%E9%BB%9E%E9%80%A3%E7%B7%9A%EF%BC%8C%E6%94%B9%E7%82%BA%E9%80%8F%E9%81%8E%E4%B8%AD%E5%A4%AE%E7%9A%84%20lobby%20server%20%E6%BA%9D%E9%80%9A%E5%8D%94%E8%AA%BF%E5%BE%8C%EF%BC%8C%E5%86%8D%E4%BB%A5%E9%BB%9E%E5%B0%8D%E9%BB%9E%E6%96%B9%E5%BC%8F%E9%96%8B%E5%A7%8B%E9%81%8A%E6%88%B2%E3%80%82%E5%AD%B8%E7%94%9F%E9%9C%80%E8%A6%81%E5%AE%8C%E6%88%90%E4%B8%A6Demo%E5%85%A9%E5%80%8B%E7%A8%8B%E5%BC%8F%EF%BC%9Alobby%20server%20%E5%92%8C%20client%E3%80%82client%20%E7%AB%AF%E5%BF%85%E9%A0%88%E5%85%B7%E5%82%99%E8%A8%BB%E5%86%8A%E3%80%81%E7%99%BB%E5%85%A5%E5%8F%8A%E7%99%BB%E5%87%BA%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%8C%E4%B8%A6%E4%B8%94%E4%BD%BF%E7%94%A8%E8%80%85%E9%A0%88%E9%80%8F%E9%81%8E%E4%B8%80%E7%B5%84%20username%20%E5%92%8C%20password%20%E9%80%B2%E8%A1%8C%E6%93%8D%E4%BD%9C%E3%80%82%E7%95%B6%20client%20%E7%99%BB%E5%85%A5%E5%BE%8C%EF%BC%8Clobby%20server%20%E9%9C%80%E8%A6%81%E9%A1%AF%E7%A4%BA%E7%95%B6%E5%89%8D%E7%B7%9A%E4%B8%8A%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%B3%81%EF%BC%8C%E4%B8%A6%E5%85%81%E8%A8%B1%E7%8E%A9%E5%AE%B6%E5%BB%BA%E7%AB%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E6%88%96%E5%8A%A0%E5%85%A5%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E7%9A%84%E6%88%BF%E9%96%93%EF%BC%8C%E9%80%B2%E8%80%8C%E9%96%8B%E5%A7%8B%E9%81%8A%E6%88%B2%E3%80%82%0A%0AThe%20goal%20of%20this%20assignment%20is%20to%20modify%20the%20connection%20method%20between%20players%20from%20HW1.%20Instead%20of%20having%20two%20players%20connect%20directly%20via%20TCP%2FUDP%20in%20a%20peer-to-peer%20manner%2C%20the%20connection%20should%20now%20be%20coordinated%20through%20a%20central%20lobby%20server%20before%20the%20game%20starts%20in%20a%20peer-to-peer%20mode.%20Students%20are%20required%20to%20complete%20and%20demonstrate%20two%20programs%3A%20a%20lobby%20server%20and%20a%20client.%20The%20client%20must%20support%20functions%20for%20registration%2C%20login%2C%20and%20logout%2C%20and%20users%20should%20operate%20using%20a%20username%20and%20password.%20After%20a%20client%20logs%20in%2C%20the%20lobby%20server%20should%20display%20the%20current%20status%20of%20online%20players%20and%20allow%20players%20to%20create%20game%20rooms%20or%20join%20other%20players'%20rooms%20to%20start%20the%20game.%0A%0A%23%23%20A.%E9%81%8B%E8%A1%8C%E5%A4%A7%E5%BB%B3server%20(Run%20the%20lobby%20server)%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%0A-%20**%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%AE%A1%E7%90%86%E5%93%A1%20(Server%20Administrator)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(System)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%0A-%20%E7%99%BB%E5%85%A5%E7%B3%BB%E8%A8%88%E4%B8%ADLinux%20server%E3%80%82%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%0A-%20%E5%95%9F%E5%8B%95%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E3%80%82%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20%E5%9F%B7%E8%A1%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%A8%8B%E5%BC%8F%EF%BC%8C%E4%B8%A6%E6%8C%87%E5%AE%9A%E5%BF%85%E8%A6%81%E7%9A%84%E5%8F%83%E6%95%B8%EF%BC%88%E5%A6%82port%E8%99%9F%E7%AD%89%EF%BC%89%E3%80%82%0ARun%20the%20game%20lobby%20server%20program%20and%20specify%20the%20necessary%20parameters%20(such%20as%20the%20port%20number%2C%20etc.).%0A2.%20%E7%B3%BB%E7%B5%B1%E6%88%90%E5%8A%9F%E5%95%9F%E5%8B%95%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E4%B8%A6%E9%A1%AF%E7%A4%BA%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%81%8B%E8%A1%8C%E7%8B%80%E6%85%8B%E7%9A%84%E8%A8%8A%E6%81%AF%E3%80%82%0AThe%20system%20successfully%20started%20the%20game%20lobby%20server%20and%20displayed%20a%20message%20showing%20the%20server's%20running%20status.%0A3.%20%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%BA%96%E5%82%99%E5%A5%BD%E6%8E%A5%E6%94%B6%E4%BE%86%E8%87%AA%E7%8E%A9%E5%AE%B6%E7%9A%84%E9%80%A3%E6%8E%A5%E8%AB%8B%E6%B1%82%E3%80%82%0AThe%20server%20is%20ready%20to%20receive%20connection%20requests%20from%20players.%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extension)%0A1a.%20**%E5%95%9F%E5%8B%95%E5%A4%B1%E6%95%97%20(primary%20actor)**%EF%BC%9A%0A%20%20%201.%20%E5%A6%82%E6%9E%9C%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%A8%8B%E5%BC%8F%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%EF%BC%88%E4%BE%8B%E5%A6%82%E5%9B%A0%E7%82%BAport%E5%B7%B2%E8%A2%AB%E4%BD%94%E7%94%A8%E6%88%96%E9%8C%AF%E8%AA%A4%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%89%EF%BC%8C%E5%89%87%E9%A1%AF%E7%A4%BA%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%82%0AIf%20the%20server%20program%20fails%20to%20start%20(for%20example%2C%20due%20to%20the%20port%20being%20occupied%20or%20incorrect%20configuration)%2C%20an%20error%20message%20is%20displayed.%0A%20%20%202.%20%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%AE%A1%E7%90%86%E5%93%A1%E9%9C%80%E8%A6%81%E6%AA%A2%E6%9F%A5%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%EF%BC%8C%E9%80%B2%E8%A1%8C%E5%BF%85%E8%A6%81%E7%9A%84%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E5%BE%8C%E9%87%8D%E6%96%B0%E5%98%97%E8%A9%A6%E5%95%9F%E5%8B%95%E3%80%82%0AThe%20server%20administrator%20needs%20to%20check%20the%20error%20message%2C%20perform%20the%20necessary%20troubleshooting%2C%20and%20then%20retry%20starting%20the%20server.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(postconditions)%0A-%20%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%88%90%E5%8A%9F%E9%81%8B%E8%A1%8C%E5%BE%8C%EF%BC%8C%E6%89%80%E6%9C%89%E7%8E%A9%E5%AE%B6%E5%8F%AF%E4%BB%A5%E9%96%8B%E5%A7%8B%E9%80%A3%E6%8E%A5%E5%88%B0%E8%A9%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E4%B8%A6%E9%80%B2%E8%A1%8C%E9%81%8A%E6%88%B2%E7%9B%B8%E9%97%9C%E6%93%8D%E4%BD%9C%E3%80%82%0AAfter%20the%20lobby%20server%20is%20successfully%20running%2C%20all%20players%20can%20start%20connecting%20to%20the%20server%20and%20perform%20game-related%20operations.%0A%0A%23%23%20B.%E8%A8%BB%E5%86%8A%20(Register)%0A%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%20(primary%20actor)%0A-%20**%E7%8E%A9%E5%AE%B6%20(Client)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(system)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(preconditions)%0A-%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%AD%A3%E5%9C%A8%E9%81%8B%E8%A1%8C%EF%BC%8C%E5%85%81%E8%A8%B1%E6%96%B0%E7%8E%A9%E5%AE%B6%E8%A8%BB%E5%86%8A%E3%80%82%0AThe%20game%20lobby%20server%20is%20running%2C%20allowing%20new%20players%20to%20register.%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E7%8E%A9%E5%AE%B6%E9%81%B8%E6%93%87%E8%A8%BB%E5%86%8A%E6%96%B0%E5%B8%B3%E8%99%9F%E3%80%82%0AThe%20player%20chooses%20to%20register%20a%20new%20account.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20%E7%8E%A9%E5%AE%B6%E9%96%8B%E5%95%9F%E9%81%8A%E6%88%B2%E5%AE%A2%E6%88%B6%E7%AB%AF%E4%B8%A6%E9%81%B8%E6%93%87%E8%A8%BB%E5%86%8A%E3%80%82%0AThe%20player%20opens%20the%20game%20client%20and%20selects%20to%20register.%0A2.%20%E7%8E%A9%E5%AE%B6%E8%BC%B8%E5%85%A5%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A8%B1%E5%92%8C%E4%B8%80%E7%B5%84%E5%AF%86%E7%A2%BC%E3%80%82%0AThe%20player%20enters%20a%20username%20and%20a%20password.%0A3.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%A9%97%E8%AD%89%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A8%B1%E6%98%AF%E5%90%A6%E5%B7%B2%E7%B6%93%E5%AD%98%E5%9C%A8%E3%80%82%0AThe%20game%20lobby%20server%20verifies%20whether%20the%20username%20already%20exists.%0A4.%20%E5%A6%82%E6%9E%9C%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A8%B1%E4%B8%8D%E5%AD%98%E5%9C%A8%EF%BC%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%B0%87%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A8%B1%E5%92%8C%E5%AF%86%E7%A2%BC%E5%84%B2%E5%AD%98%E3%80%82%0AIf%20the%20username%20does%20not%20exist%2C%20the%20game%20lobby%20server%20will%20store%20the%20username%20and%20password.%0A5.%20%E7%8E%A9%E5%AE%B6%E6%88%90%E5%8A%9F%E8%A8%BB%E5%86%8A%EF%BC%8C%E4%B8%A6%E6%94%B6%E5%88%B0%E7%A2%BA%E8%AA%8D%E8%A8%8A%E6%81%AF%E3%80%82%0AThe%20player%20successfully%20registers%20and%20receives%20a%20confirmation%20message.%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A8%B1%E9%87%8D%E8%A4%87%20(The%20username%20is%20already%20taken)**%EF%BC%9A%0A%20%20%201.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%99%BC%E7%8F%BE%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A8%B1%E5%B7%B2%E7%B6%93%E8%A2%AB%E8%A8%BB%E5%86%8A%E3%80%82%0A%20%20%20The%20game%20lobby%20server%20finds%20that%20the%20username%20has%20already%20%20%20%20been%20registered.%0A%20%20%202.%20%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%9B%9E%E6%87%89%20%22%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E5%B7%B2%E5%AD%98%E5%9C%A8%22%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%82%0AThe%20server%20responds%20with%20an%20error%20message%3A%20%22Username%20already%20exists.%22%0A%20%20%203.%20%E7%8E%A9%E5%AE%B6%E6%94%B6%E5%88%B0%E9%8C%AF%E8%AA%A4%E6%8F%90%E7%A4%BA%EF%BC%8C%E8%A6%81%E6%B1%82%E8%BC%B8%E5%85%A5%E5%8F%A6%E4%B8%80%E5%80%8B%E5%90%8D%E7%A8%B1%E9%80%B2%E8%A1%8C%E8%A8%BB%E5%86%8A%E3%80%82%0AThe%20player%20receives%20an%20error%20prompt%2C%20requesting%20them%20to%20enter%20another%20username%20for%20registration.%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(Exception)%0A-%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%97%9C%E9%96%89%20(The%20game%20lobby%20server%20is%20shutting%20down)%EF%BC%9A%0A%20%20%20-%20%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%97%9C%E9%96%89%E5%BE%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E4%BF%9D%E5%AD%98%E7%8E%A9%E5%AE%B6%E8%A8%BB%E5%86%8A%E8%B3%87%E6%96%99%EF%BC%8C%E6%89%80%E6%9C%89%E8%B3%87%E6%96%99%E4%B8%8D%E6%9C%83%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88%EF%BC%8C%E4%B9%9F%E4%B8%8D%E6%9C%83%E6%8C%81%E4%B9%85%E5%8C%96%E3%80%82%0AAfter%20the%20server%20shuts%20down%2C%20there%20is%20no%20need%20to%20save%20player%20registration%20data%3B%20all%20information%20will%20not%20be%20written%20to%20files%20and%20will%20not%20be%20persisted.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(postconditions)%0A-%20%E7%8E%A9%E5%AE%B6%E6%88%90%E5%8A%9F%E8%A8%BB%E5%86%8A%E5%BE%8C%EF%BC%8C%E5%9F%B7%E8%A1%8C%E7%99%BB%E5%85%A5%E6%93%8D%E4%BD%9C%E3%80%82%0AAfter%20the%20player%20successfully%20registers%2C%20they%20proceed%20to%20the%20login%20operation.%0A%0A%23%23%20C.%E7%99%BB%E5%85%A5%20(Login)%0A%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%20%20(primary%20actor)%0A-%20**%E7%8E%A9%E5%AE%B6%20(Client)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(System)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(precondition)%0A1.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%BF%85%E9%A0%88%E8%99%95%E6%96%BC%E9%81%8B%E8%A1%8C%E7%8B%80%E6%85%8B%EF%BC%8C%E4%B8%A6%E4%B8%94%E7%8E%A9%E5%AE%B6%E4%B9%8B%E5%89%8D%E5%B7%B2%E7%B6%93%E8%A8%BB%E5%86%8A%E3%80%82%0AThe%20game%20lobby%20server%20must%20be%20running%2C%20and%20the%20player%20must%20have%20registered%20previously.%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E7%8E%A9%E5%AE%B6%E9%81%B8%E6%93%87%E7%99%BB%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E3%80%82%0AThe%20player%20chooses%20to%20log%20into%20the%20game%20lobby.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20%E7%8E%A9%E5%AE%B6%E9%96%8B%E5%95%9F%E9%81%8A%E6%88%B2%E5%AE%A2%E6%88%B6%E7%AB%AF%E4%B8%A6%E9%81%B8%E6%93%87%E7%99%BB%E5%85%A5%E3%80%82%0AThe%20player%20opens%20the%20game%20client%20and%20selects%20to%20log%20in.%0A2.%20%E7%8E%A9%E5%AE%B6%E8%BC%B8%E5%85%A5%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E3%80%82%0AThe%20player%20enters%20the%20username.%0A3.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%A9%97%E8%AD%89%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E3%80%82%0AThe%20game%20lobby%20server%20verifies%20whether%20the%20username%20exists.%0A4.%20%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E5%AD%98%E5%9C%A8%EF%BC%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%8F%90%E7%A4%BA%E7%8E%A9%E5%AE%B6%E8%BC%B8%E5%85%A5%E5%AF%86%E7%A2%BC%0AIf%20the%20username%20exists%2C%20the%20game%20lobby%20server%20prompts%20the%20player%20to%20enter%20their%20password.%0A5.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%A9%97%E8%AD%89%E5%AF%86%E7%A2%BC%E6%AD%A3%E7%A2%BA%E6%80%A7%E3%80%82%0AThe%20game%20lobby%20server%20verifies%20the%20correctness%20of%20the%20password.%0A6.%20%E9%A9%97%E8%AD%89%E9%80%9A%E9%81%8E%E5%BE%8C%EF%BC%8C%E7%8E%A9%E5%AE%B6%E6%88%90%E5%8A%9F%E7%99%BB%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E3%80%82%0AAfter%20the%20verification%20is%20successful%2C%20the%20player%20logs%20into%20the%20game%20lobby.%0A8.%20%E7%8E%A9%E5%AE%B6%E8%83%BD%E5%A4%A0%E7%9C%8B%E5%88%B0%E7%95%B6%E5%89%8D%E6%89%80%E6%9C%89%E7%9A%84%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E5%92%8C%E5%85%B6%E4%BB%96%E5%9C%A8%E7%B7%9A%E7%8E%A9%E5%AE%B6%E3%80%82%0AThe%20player%20is%20able%20to%20see%20all%20current%20game%20rooms%20and%20other%20online%20players.%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E7%8E%A9%E5%AE%B6%E6%9C%AA%E8%A8%BB%E5%86%8A%20(The%20player%20is%20not%20registered)**%EF%BC%9A%0A%20%20%201.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%99%BC%E7%8F%BE%E8%A9%B2%E7%8E%A9%E5%AE%B6%E4%B8%A6%E6%9C%AA%E8%A8%BB%E5%86%8A%EF%BC%8C%E5%9B%9E%E6%87%89%20%22%E4%BD%BF%E7%94%A8%E8%80%85%E4%B8%8D%E5%AD%98%E5%9C%A8%22%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%82%0AThe%20game%20lobby%20server%20discovers%20that%20the%20player%20is%20not%20registered%20and%20responds%20with%20the%20error%20message%3A%20%22User%20does%20not%20exist.%22%0A%20%20%202.%20%E7%8E%A9%E5%AE%B6%E6%94%B6%E5%88%B0%E9%8C%AF%E8%AA%A4%E6%8F%90%E7%A4%BA%EF%BC%8C%E7%84%A1%E6%B3%95%E7%99%BB%E5%85%A5%EF%BC%8C%E4%B8%A6%E6%8F%90%E7%A4%BA%E9%80%B2%E8%A1%8C%E8%A8%BB%E5%86%8A%E3%80%82%0AThe%20player%20receives%20an%20error%20prompt%2C%20unable%20to%20log%20in%2C%20and%20is%20advised%20to%20register.%0A%0A2a.%20**%E5%AF%86%E7%A2%BC%E9%8C%AF%E8%AA%A4%20(Incorrect%20password)**%EF%BC%9A%0A%20%20%201.%20%E7%8E%A9%E5%AE%B6%E8%BC%B8%E5%85%A5%E7%9A%84%E5%AF%86%E7%A2%BC%E9%8C%AF%E8%AA%A4%E3%80%82%0AThe%20password%20entered%20by%20the%20player%20is%20incorrect.%0A%20%20%202.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%9B%9E%E6%87%89%20%22%E5%AF%86%E7%A2%BC%E9%8C%AF%E8%AA%A4%22%20%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%82%0AThe%20game%20lobby%20server%20responds%20with%20the%20error%20message%3A%20%22Incorrect%20password.%22%0A%20%20%203.%20%E7%8E%A9%E5%AE%B6%E6%94%B6%E5%88%B0%E9%8C%AF%E8%AA%A4%E6%8F%90%E7%A4%BA%EF%BC%8C%E9%87%8D%E6%96%B0%E5%98%97%E8%A9%A6%E7%99%BB%E5%85%A5%E3%80%82%0AThe%20player%20receives%20an%20error%20prompt%20and%20tries%20to%20log%20in%20again.%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(Exception)%0A-%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%B4%A9%E6%BD%B0%E6%88%96%E7%84%A1%E6%B3%95%E9%80%A3%E7%B7%9A%20(The%20game%20lobby%20server%20crashes%20or%20cannot%20connect)%EF%BC%9A%0A%20%20%20-%20%E7%8E%A9%E5%AE%B6%E7%84%A1%E6%B3%95%E7%99%BB%E5%85%A5%EF%BC%8C%E9%A1%AF%E7%A4%BA%E9%80%A3%E7%B7%9A%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%82%0AThe%20player%20is%20unable%20to%20log%20in%2C%20and%20a%20connection%20error%20message%20is%20displayed.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(poscondition)%0A-%20%E7%8E%A9%E5%AE%B6%E6%88%90%E5%8A%9F%E7%99%BB%E5%85%A5%E5%BE%8C%EF%BC%8C%E7%8E%A9%E5%AE%B6%E7%8B%80%E6%85%8B%E8%A1%A8%E7%A4%BA%E7%82%BA%E3%80%8C%E9%96%92%E7%BD%AE%E4%B8%AD%E3%80%8D%EF%BC%8C%E4%B8%94%E8%83%BD%E5%A4%A0%E7%9C%8B%E5%88%B0%E7%B7%9A%E4%B8%8A%E7%8B%80%E6%B3%81%0AAfter%20successfully%20logging%20in%2C%20the%20player's%20status%20is%20shown%20as%20%22idle%2C%22%20and%20they%20can%20view%20the%20online%20status%20of%20other%20players%0A%0A%23%23%20D.%E7%99%BB%E5%87%BA%20(Logout)%0A-%20**%E7%8E%A9%E5%AE%B6%20(client)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(System)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(precondition)%0A-%20%E7%8E%A9%E5%AE%B6%E5%B7%B2%E7%B6%93%E7%99%BB%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%B8%A6%E5%9C%A8%E7%B7%9A%E4%B8%8A%E3%80%82%0AThe%20player%20has%20logged%20into%20the%20game%20lobby%20and%20is%20online.%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E7%8E%A9%E5%AE%B6%E9%81%B8%E6%93%87%E5%BE%9E%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E7%99%BB%E5%87%BA%E3%80%82%0AThe%20player%20chooses%20to%20log%20out%20from%20the%20game%20lobby.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20%E7%8E%A9%E5%AE%B6%E5%9C%A8%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%B8%AD%E9%81%B8%E6%93%87%E3%80%8C%E7%99%BB%E5%87%BA%E3%80%8D%E9%81%B8%E9%A0%85%E3%80%82%0AThe%20player%20selects%20the%20%22Log%20Out%22%20option%20in%20the%20game%20lobby.%0A2.%20%E7%B3%BB%E7%B5%B1%E6%8E%A5%E6%94%B6%E5%88%B0%E7%99%BB%E5%87%BA%E8%AB%8B%E6%B1%82%E3%80%82%0AThe%20system%20receives%20the%20logout%20request.%0A3.%20%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%99%95%E7%90%86%E7%99%BB%E5%87%BA%E8%AB%8B%E6%B1%82%20(The%20game%20lobby%20server%20processes%20the%20logout%20request)%EF%BC%9A%0A%20%20%20-%20%E7%A7%BB%E9%99%A4%E8%A9%B2%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%85%8B%EF%BC%8C%E4%B8%A6%E5%BE%9E%E7%B7%9A%E4%B8%8A%E7%8E%A9%E5%AE%B6%E5%88%97%E8%A1%A8%E4%B8%AD%E5%88%AA%E9%99%A4%E3%80%82%0AThe%20player's%20status%20is%20removed%2C%20and%20they%20are%20deleted%20from%20the%20online%20players%20list.%0A4.%20%E7%B3%BB%E7%B5%B1%E7%A2%BA%E8%AA%8D%E7%99%BB%E5%87%BA%E6%88%90%E5%8A%9F%EF%BC%8C%E4%B8%A6%E5%90%91%E7%8E%A9%E5%AE%B6%E9%A1%AF%E7%A4%BA%E7%99%BB%E5%87%BA%E8%A8%8A%E6%81%AF%E3%80%82%0AThe%20system%20confirms%20a%20successful%20logout%20and%20displays%20a%20logout%20message%20to%20the%20player.%0A5.%20%E7%8E%A9%E5%AE%B6%E6%88%90%E5%8A%9F%E7%99%BB%E5%87%BA%EF%BC%8C%E8%BF%94%E5%9B%9E%E5%88%B0%E7%99%BB%E5%85%A5%2F%E8%A8%BB%E5%86%8A%E7%95%8C%E9%9D%A2%E3%80%82%0AThe%20player%20successfully%20logs%20out%20and%20returns%20to%20the%20login%2Fregister%20screen.%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E7%99%BB%E5%87%BA%E5%A4%B1%E6%95%97%20(Logout%20failed)**%EF%BC%9A%0A%20%20%201.%20%E5%A6%82%E6%9E%9C%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%9C%A8%E8%99%95%E7%90%86%E7%99%BB%E5%87%BA%E8%AB%8B%E6%B1%82%E6%99%82%E9%81%87%E5%88%B0%E9%8C%AF%E8%AA%A4%EF%BC%88%E4%BE%8B%E5%A6%82%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%B4%A9%E6%BD%B0%E6%88%96%E7%B6%B2%E7%B5%A1%E5%95%8F%E9%A1%8C%EF%BC%89%EF%BC%8C%E5%89%87%E9%A1%AF%E7%A4%BA%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%82%0AIf%20the%20server%20encounters%20an%20error%20while%20processing%20the%20logout%20request%20(such%20as%20a%20server%20crash%20or%20network%20issues)%2C%20an%20error%20message%20is%20displayed.%0A%20%20%202.%20%E7%8E%A9%E5%AE%B6%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E9%87%8D%E8%A9%A6%E7%99%BB%E5%87%BA%E3%80%82%0AThe%20player%20can%20choose%20to%20retry%20logging%20out.%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(Exception)%0A-%20**%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%8C%AF%E8%AA%A4%20(Server%20error)**%EF%BC%9A%0A%20%20%20-%20%E8%8B%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%84%A1%E6%B3%95%E6%88%90%E5%8A%9F%E7%99%BB%E5%87%BA%E7%8E%A9%E5%AE%B6%EF%BC%8C%E5%B0%87%E9%A1%AF%E7%A4%BA%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%E3%80%82%0AIf%20the%20game%20lobby%20server%20cannot%20successfully%20log%20out%20the%20player%2C%20an%20error%20message%20will%20be%20displayed.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(Postcondition)%0A-%20%E7%8E%A9%E5%AE%B6%E7%99%BB%E5%87%BA%E5%BE%8C%EF%BC%8C%E5%B0%87%E4%B8%8D%E5%86%8D%E9%A1%AF%E7%A4%BA%E5%9C%A8%E7%B7%9A%E4%B8%8A%E7%8E%A9%E5%AE%B6%E5%88%97%E8%A1%A8%E4%B8%AD%EF%BC%8C%E4%B8%A6%E7%84%A1%E6%B3%95%E5%9F%B7%E8%A1%8C%E4%BB%BB%E4%BD%95%E9%81%8A%E6%88%B2%E6%93%8D%E4%BD%9C%EF%BC%8C%E7%9B%B4%E5%88%B0%E9%87%8D%E6%96%B0%E7%99%BB%E5%85%A5%E3%80%82%0AAfter%20logging%20out%2C%20the%20player%20will%20no%20longer%20be%20displayed%20in%20the%20online%20players%20list%20and%20will%20not%20be%20able%20to%20perform%20any%20game%20actions%20until%20they%20log%20in%20again.%0A%0A%23%23%20E.%E9%A1%AF%E7%A4%BA%E7%B7%9A%E4%B8%8A%E6%83%85%E5%BD%A2%20(Display%20online%20status)%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%20%20(primary%20actor)%0A-%20**%E7%8E%A9%E5%AE%B6%20(Client)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(System)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(precondition)%0A-%20%E7%8E%A9%E5%AE%B6%E5%B7%B2%E7%B6%93%E7%99%BB%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E3%80%82%0AThe%20player%20has%20logged%20into%20the%20game%20lobby%20server.%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E7%8E%A9%E5%AE%B6%E7%99%BB%E5%85%A5%E5%BE%8C%E8%87%AA%E5%8B%95%E8%A7%B8%E7%99%BC%E3%80%82%0AThe%20player%20has%20logged%20into%20the%20game%20lobby%20server.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20%E7%8E%A9%E5%AE%B6%E9%80%B2%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%EF%BC%8C%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%87%AA%E5%8B%95%E9%A1%AF%E7%A4%BA%E4%BB%A5%E4%B8%8B%E8%B3%87%E8%A8%8A%20(The%20player%20enters%20the%20game%20lobby%2C%20and%20the%20server%20automatically%20displays%20the%20following%20information)%EF%BC%9A%0A%20%20%20-%20%E7%95%B6%E5%89%8D%E7%B7%9A%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A8%B1%E4%BB%A5%E5%8F%8A%E7%8B%80%E6%85%8B(%E4%BE%8B%E5%A6%82%3A%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%81%E9%96%92%E7%BD%AE%E4%B8%AD)%E3%80%82%0AThe%20names%20and%20statuses%20of%20all%20currently%20online%20players%20(e.g.%2C%20playing%2C%20idle).%0A%20%20%20-%20%E6%89%80%E6%9C%89%E5%85%AC%E9%96%8B%E9%81%8A%E6%88%B2%E7%9A%84%E6%88%BF%E9%96%93(%E5%8C%85%E5%90%AB%E5%89%B5%E5%BB%BA%E8%80%85%E3%80%81%E9%81%8A%E6%88%B2%E9%A1%9E%E5%9E%8B%E3%80%81%E6%88%BF%E9%96%93%E7%8B%80%E6%85%8B)%E3%80%82%0AAll%20public%20game%20rooms%20(including%20the%20creator%2C%20game%20type%2C%20and%20room%20status).%0A2.%20%E7%95%B6%E6%9C%89%E7%8E%A9%E5%AE%B6%E7%99%BB%E5%87%BA%E6%99%82%EF%BC%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E6%9C%83%E5%BE%9E%E5%88%97%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%E8%A9%B2%E7%8E%A9%E5%AE%B6%E3%80%82%0AWhen%20a%20player%20logs%20out%2C%20the%20game%20lobby%20will%20remove%20that%20player%20from%20the%20list.%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E7%84%A1%E7%8E%A9%E5%AE%B6%E5%9C%A8%E7%B7%9A%20(No%20players%20online)**%EF%BC%9A%0A%20%20%201.%20%E5%A6%82%E6%9E%9C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%B8%AD%E6%B2%92%E6%9C%89%E7%8E%A9%E5%AE%B6%E5%9C%A8%E7%B7%9A%EF%BC%8C%E9%A1%AF%E7%A4%BA%20%22%E7%9B%AE%E5%89%8D%E7%84%A1%E7%8E%A9%E5%AE%B6%E5%9C%A8%E7%B7%9A%22%20%E8%A8%8A%E6%81%AF%E3%80%82%0A%20%20%20%20%20%20%20If%20there%20are%20no%20players%20online%20in%20the%20game%20lobby%2C%20display%20the%20message%20%22Currently%2C%20no%20players%20are%20online.%22%0A%20%20%20%20%20%20%20%0A2a.%20**%E7%84%A1%E5%85%AC%E9%96%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%20(No%20public%20game%20rooms%20available)**%EF%BC%9A%0A%20%20%201.%20%E5%A6%82%E6%9E%9C%E6%B2%92%E6%9C%89%E4%BB%BB%E4%BD%95%E5%85%AC%E9%96%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E6%AD%A3%E5%9C%A8%E7%AD%89%E5%BE%85%E5%B0%8D%E6%89%8B%EF%BC%8C%E9%A1%AF%E7%A4%BA%20%22%E7%84%A1%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E7%AD%89%E5%BE%85%E7%8E%A9%E5%AE%B6%22%20%E8%A8%8A%E6%81%AF%E3%80%82%0AIf%20there%20are%20no%20public%20game%20rooms%20waiting%20for%20players%2C%20display%20the%20message%20%22No%20public%20rooms%20waiting%20for%20players.%22%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(Exception)%0A-%20%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%84%A1%E6%B3%95%E6%9B%B4%E6%96%B0%E7%B7%9A%E4%B8%8A%E7%8E%A9%E5%AE%B6%E7%8B%80%E6%85%8B%20(The%20server%20is%20unable%20to%20update%20the%20online%20player%20status)%EF%BC%9A%0A%20%20%20-%20%E5%A6%82%E6%9E%9C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%99%BC%E7%94%9F%E9%8C%AF%E8%AA%A4%E6%88%96%E7%84%A1%E6%B3%95%E9%80%A3%E7%B7%9A%EF%BC%8C%E7%8E%A9%E5%AE%B6%E7%84%A1%E6%B3%95%E7%9C%8B%E5%88%B0%E6%AD%A3%E7%A2%BA%E7%9A%84%E7%B7%9A%E4%B8%8A%E7%8E%A9%E5%AE%B6%E5%88%97%E8%A1%A8%E5%92%8C%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E8%B3%87%E8%A8%8A%E3%80%82%0AIf%20the%20game%20lobby%20server%20encounters%20an%20error%20or%20cannot%20connect%2C%20players%20will%20not%20be%20able%20to%20see%20the%20correct%20online%20player%20list%20and%20public%20room%20information.%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(poscondition)%0A-%20%E7%8E%A9%E5%AE%B6%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%93%9A%E9%A1%AF%E7%A4%BA%E7%9A%84%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E5%92%8C%E7%B7%9A%E4%B8%8A%E7%8E%A9%E5%AE%B6%E5%88%97%E8%A1%A8%EF%BC%8C%E7%AD%89%E5%BE%85%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E9%82%80%E8%AB%8B%E6%88%96%E9%81%B8%E6%93%87%E8%A6%81%E5%9F%B7%E8%A1%8C%E7%9A%84%E4%BB%A5%E4%B8%8B%E6%93%8D%E4%BD%9C%20(Players%20can%20wait%20for%20invitations%20from%20other%20players%20or%20choose%20to%20perform%20the%20following%20actions%20based%20on%20the%20displayed%20public%20rooms%20and%20online%20player%20list)%EF%BC%9A%0A%20%20%20%201.%20%E5%9C%A8%20lobby%20server%20%E4%B8%8A%E5%BB%BA%E7%AB%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%0ACreate%20a%20game%20room%20on%20the%20lobby%20server.%0A%20%20%20%203.%20%E5%8A%A0%E5%85%A5public%20room%0AJoin%20a%20public%20room.%0A%20%20%20%204.%20%E7%99%BB%E5%87%BA%0ALogout%0A%0A%0A%23%23%20F.%E5%BB%BA%E7%AB%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E4%B8%A6%20%E9%82%80%E8%AB%8B%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%20%2F%20%E7%AD%89%E5%BE%85%E5%85%B6%E4%BB%96%E4%BA%BA%E4%B8%BB%E5%8B%95%E5%8A%A0%E5%85%A5%20(Create%20a%20game%20room%20and%20invite%20other%20players%20to%20join%20%2F%20wait%20for%20others%20to%20join%20proactively.)%0A%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%20(primary%20actor)%0A-%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%20(Room%20Host)**%0A-%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%20(Idle%20Peer)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(system)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A-%20**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Game%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(precondition)%0A-%20%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E5%B7%B2%E7%B6%93%E7%99%BB%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%EF%BC%8C%E4%B8%A6%E8%99%95%E6%96%BC%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E7%8B%80%E6%85%8B%E3%80%82%0AThe%20room%20creator%20is%20logged%20into%20the%20game%20lobby%20and%20is%20in%20an%20%22idle%22%20state.%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E9%81%B8%E6%93%87%E5%9C%A8%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%B8%AD%E5%89%B5%E5%BB%BA%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E3%80%82%0AThe%20room%20creator%20chooses%20to%20create%20a%20game%20room%20in%20the%20game%20lobby.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E5%9C%A8%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%B8%AD%E9%81%B8%E6%93%87%E3%80%8C%E5%89%B5%E5%BB%BA%E6%88%BF%E9%96%93%E3%80%8D%E5%8A%9F%E8%83%BD%E3%80%82%0AThe%20**room%20creator**%20selects%20the%20%22Create%20Room%22%20feature%20in%20the%20game%20lobby.%0A2.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%81%B8%E6%93%87%E9%81%8A%E6%88%B2%E9%A1%9E%E5%9E%8B%EF%BC%8C%E8%87%B3%E5%B0%91%E8%A6%81%E6%9C%89%3Cspan%20style%3D%22color%3Ared%3B%22%3E2%E7%A8%AE%E4%BB%A5%E4%B8%8A%3C%2Fspan%3E%E7%9A%84%E9%81%8A%E6%88%B2%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E3%80%82%0AThe%20**room%20creator**%20selects%20a%20game%20type%2C%20with%20at%20least%20%3Cspan%20style%3D%22color%3Ared%3B%22%3Etwo%20or%20more%3C%2Fspan%3E%20games%20available%20for%20selection.%0A3.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%81%B8%E6%93%87%E6%88%BF%E9%96%93%E9%A1%9E%E5%9E%8B%20(The%20**room%20creator**%20selects%20the%20room%20type)%EF%BC%9A%0A%20%20%20-%20**Public%20Room%20(%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93)**%EF%BC%9A%E5%85%81%E8%A8%B1%E4%BB%BB%E4%BD%95%E7%8E%A9%E5%AE%B6%E6%9F%A5%E7%9C%8B%E4%B8%A6%E5%8A%A0%E5%85%A5%E3%80%82%0A%20%20%20%20**Public%20Room**%3A%20Allows%20any%20player%20to%20view%20and%20join.%0A%20%20%20-%20**Private%20Room%20(%E7%A7%81%E4%BA%BA%E6%88%BF%E9%96%93)**%EF%BC%9A%E5%83%85%E8%83%BD%E9%82%80%E8%AB%8B%E8%99%95%E6%96%BC%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E7%8B%80%E6%85%8B%E7%9A%84%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E3%80%82%0A**Private%20Room**%3A%20Only%20players%20who%20are%20in%20an%20%22idle%22%20state%20can%20be%20invited%20to%20join.%0A%20%20%20%0A4.%20**Public%20Room%E6%83%85%E5%A2%83**%20(**Public%20Room%20Scenario**)%EF%BC%9A%0A%20%20%201.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E5%89%B5%E5%BB%BA%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E5%BE%8C%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E8%A9%B2%E6%88%BF%E9%96%93%E9%A1%AF%E7%A4%BA%E5%9C%A8%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E5%88%97%E8%A1%A8%E4%B8%AD%EF%BC%8C%E6%89%80%E6%9C%89%E5%A4%A7%E5%BB%B3%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E4%B8%A6%E9%81%B8%E6%93%87%E5%8A%A0%E5%85%A5%E3%80%82%0AAfter%20the%20**room%20creator**%20creates%20a%20public%20room%2C%20the%20**game%20lobby%20server**%20displays%20that%20room%20in%20the%20public%20room%20list%2C%20allowing%20all%20players%20in%20the%20lobby%20to%20see%20it%20and%20choose%20to%20join.%0A%20%20%202.%20%E5%9C%A8%E6%B2%92%E6%9C%89%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E5%89%8D%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E7%8B%80%E6%85%8B%E8%A8%AD%E7%82%BA%E3%80%8C%E7%AD%89%E5%BE%85%E4%B8%AD%E3%80%8D%E3%80%82%0ABefore%20any%20players%20join%2C%20the%20**game%20lobby%20server**%20sets%20the%20room%20status%20to%20%22Waiting.%22%0A%20%20%203.%20%E7%95%B6%E6%9C%89%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E6%88%BF%E9%96%93%E5%BE%8C%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%EF%BC%8C%E4%B8%A6%E5%B0%87%E6%88%BF%E9%96%93%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%E7%8B%80%E6%85%8B%E5%BE%9E%E5%85%AC%E9%96%8B%E5%88%97%E8%A1%A8%E4%B8%AD%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AWhen%20a%20player%20joins%20the%20room%2C%20the%20**game%20lobby%20server**%20updates%20the%20room%20status%20to%20%22In%20Game%22%20and%20changes%20the%20status%20of%20players%20in%20the%20room%20from%20the%20public%20list%20to%20%22In%20Game.%22%0A%20%20%20%0A4.%20**Private%20Room%E6%83%85%E5%A2%83**%20(**Private%20Room%20Scenario**)%EF%BC%9A%0A%20%20%201.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E5%89%B5%E5%BB%BA%E7%A7%81%E4%BA%BA%E6%88%BF%E9%96%93%E5%BE%8C%EF%BC%8C%E9%80%9A%E9%81%8E**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E9%81%B8%E6%93%87%E6%80%A7%E9%82%80%E8%AB%8B%E5%85%B6%E4%BB%96%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E7%8B%80%E6%85%8B%E7%9A%84%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E6%88%BF%E9%96%93%E3%80%82%0AAfter%20the%20**room%20creator**%20creates%20a%20private%20room%2C%20they%20selectively%20invite%20other%20players%20who%20are%20in%20an%20%22idle%22%20state%20to%20join%20the%20room%20through%20the%20**game%20lobby%20server**.%0A%20%20%202.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E6%94%B6%E5%88%B0%E9%82%80%E8%AB%8B%E5%BE%8C%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E6%8E%A5%E5%8F%97%E6%88%96%E6%8B%92%E7%B5%95%E3%80%82%0A**Idle%20players**%20who%20receive%20the%20invitation%20can%20choose%20to%20accept%20or%20decline%20it.%0A%20%20%203.%20%E7%95%B6**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E6%8E%A5%E5%8F%97%E9%82%80%E8%AB%8B%E4%B8%A6%E5%8A%A0%E5%85%A5%E6%88%BF%E9%96%93%E5%BE%8C%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AWhen%20an%20**idle%20player**%20accepts%20the%20invitation%20and%20joins%20the%20room%2C%20the%20**game%20lobby%20server**%20updates%20the%20player's%20status%20to%20%22In%20Game.%22%0A%20%20%20%0A5.%20**%E6%88%BF%E9%96%93%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0**%20(**Room%20Status%20Update**)%EF%BC%9A%0A%20%20%201.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E7%9A%84%E7%8B%80%E6%85%8B%E8%A8%AD%E7%82%BA%E3%80%8C%E6%88%BF%E9%96%93%E4%B8%AD%E3%80%8D%E7%9B%B4%E5%88%B0%E6%9C%89%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E3%80%82%0A%20The%20**game%20lobby%20server**%20sets%20the%20room%20creator's%20status%20to%20%22In%20Room%22%20until%20other%20players%20join.%0A%20%20%202.%20%E7%95%B6%E9%81%8A%E6%88%B2%E9%96%8B%E5%A7%8B%E5%BE%8C%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E7%8B%80%E6%85%8B%E5%BE%9E%E3%80%8C%E7%AD%89%E5%BE%85%E4%B8%AD%E3%80%8D%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%EF%BC%8C%E6%88%BF%E9%96%93%E4%B8%8D%E5%86%8D%E6%8E%A5%E5%8F%97%E6%96%B0%E7%8E%A9%E5%AE%B6%E3%80%82%0AOnce%20the%20game%20starts%2C%20the%20**game%20lobby%20server**%20updates%20the%20room%20status%20from%20%22Waiting%22%20to%20%22In%20Game%2C%22%20and%20the%20room%20will%20no%20longer%20accept%20new%20players.%0A%20%20%203.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E8%88%87%E5%8A%A0%E5%85%A5%E7%9A%84%E7%8E%A9%E5%AE%B6%E7%8B%80%E6%85%8B%E9%83%BD%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AThe%20status%20of%20both%20the%20**room%20creator**%20and%20the%20joined%20players%20is%20updated%20to%20%22In%20Game.%22%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E5%A4%B1%E6%95%97**%20(**Room%20creation%20failed**)%EF%BC%9A%0A%20%20%201.%20%E8%8B%A5%E5%89%B5%E5%BB%BA%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E5%A4%B1%E6%95%97%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E6%9C%83%E9%80%9A%E7%9F%A5%E5%89%B5%E5%BB%BA%E8%80%85%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%EF%BC%8C%E4%B8%A6%E8%AE%93%E5%85%B6%E9%87%8D%E6%96%B0%E5%98%97%E8%A9%A6%E3%80%82%0AIf%20the%20game%20room%20creation%20fails%2C%20the%20**game%20lobby%20server**%20will%20notify%20the%20creator%20with%20an%20error%20message%20and%20allow%20them%20to%20retry.%0A%0A2a.%20**%E7%8E%A9%E5%AE%B6%E6%8B%92%E7%B5%95%E7%A7%81%E4%BA%BA%E6%88%BF%E9%96%93%E9%82%80%E8%AB%8B**%20(**Player%20declines%20the%20private%20room%20invitation**)%EF%BC%9A%0A%20%20%201.%20%E8%8B%A5**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E6%8B%92%E7%B5%95%E9%82%80%E8%AB%8B%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E9%80%9A%E7%9F%A5**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%82%80%E8%AB%8B%E8%A2%AB%E6%8B%92%E7%B5%95%EF%BC%8C%E4%B8%A6%E5%85%81%E8%A8%B1%E5%89%B5%E5%BB%BA%E8%80%85%E9%82%80%E8%AB%8B%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E3%80%82%0AIf%20an%20**idle%20player**%20declines%20the%20invitation%2C%20the%20**game%20lobby%20server**%20notifies%20the%20**room%20creator**%20that%20the%20invitation%20was%20declined%20and%20allows%20the%20creator%20to%20invite%20other%20players.%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(Exception)%0A-%20**%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%8C%AF%E8%AA%A4**%20(**Server%20error**)%EF%BC%9A%0A%20%20%20-%20%E8%8B%A5**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E7%84%A1%E6%B3%95%E6%88%90%E5%8A%9F%E8%99%95%E7%90%86%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E3%80%81%E9%82%80%E8%AB%8B%E6%88%96%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%89%87%E6%9C%83%E9%80%9A%E7%9F%A5%E7%8E%A9%E5%AE%B6%E7%99%BC%E7%94%9F%E9%8C%AF%E8%AA%A4%E4%B8%A6%E8%AB%8B%E5%85%B6%E9%87%8D%E6%96%B0%E5%98%97%E8%A9%A6%E3%80%82%0AIf%20the%20**game%20lobby%20server**%20is%20unable%20to%20successfully%20process%20room%20creation%2C%20invitations%2C%20or%20status%20updates%2C%20it%20will%20notify%20the%20player%20that%20an%20error%20has%20occurred%20and%20ask%20them%20to%20retry.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(poscondition)%0A-%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E6%88%90%E5%8A%9F%E5%BB%BA%E7%AB%8B%E6%88%BF%E9%96%93%EF%BC%8C%E4%B8%A6%E7%AD%89%E5%BE%85%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E3%80%82%0AThe%20**room%20creator**%20successfully%20establishes%20the%20room%20and%20waits%20for%20other%20players%20to%20join.%0A-%20**%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93**%E9%A1%AF%E7%A4%BA%E5%9C%A8%E5%A4%A7%E5%BB%B3%E7%9A%84%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E5%88%97%E8%A1%A8%E4%B8%AD%EF%BC%8C%E4%B8%A6%E5%9C%A8%E6%BB%BF%E5%93%A1%E5%89%8D%E8%A1%A8%E7%A4%BA%E7%82%BA%E3%80%8C%E7%AD%89%E5%BE%85%E4%B8%AD%E3%80%8D%E3%80%82%0AThe%20**public%20room**%20is%20displayed%20in%20the%20lobby's%20public%20room%20list%20and%20is%20marked%20as%20%22Waiting%22%20until%20it%20is%20full.%0A-%20**%E7%A7%81%E4%BA%BA%E6%88%BF%E9%96%93**%E9%82%80%E8%AB%8B%E7%9A%84%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E5%BE%8C%EF%BC%8C%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E4%B8%A6%E9%96%8B%E5%A7%8B%E9%81%8A%E6%88%B2%EF%BC%8C%E6%88%BF%E9%96%93%E4%B8%8D%E5%86%8D%E6%8E%A5%E5%8F%97%E6%96%B0%E7%8E%A9%E5%AE%B6%E3%80%82%0AAfter%20the%20invited%20players%20join%20the%20**private%20room**%2C%20their%20status%20is%20updated%20to%20%22In%20Game%2C%22%20and%20the%20game%20starts%3B%20the%20room%20will%20no%20longer%20accept%20new%20players.%0A-%20%E9%81%8A%E6%88%B2%E9%96%8B%E5%A7%8B%E5%BE%8C%EF%BC%8C%E6%88%BF%E9%96%93%E5%92%8C%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AAfter%20the%20game%20starts%2C%20the%20room%20and%20players'%20statuses%20are%20updated%20to%20%22In%20Game.%22%0A%0A%23%23%20G.%E7%AD%89%E5%BE%85%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E9%82%80%E8%AB%8B%20(Waiting%20for%20invitations%20from%20other%20players)%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%20(primary%20actor)%0A-%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%20(Idle%20Peer)**%0A-%20**%E7%A7%81%E4%BA%BA%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%20(Private%20Room%20Host)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(system)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A-%20**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Game%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(precondition)%0A-%20%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%E5%B7%B2%E7%B6%93%E7%99%BB%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%EF%BC%8C%E4%B8%A6%E4%B8%94%E7%8B%80%E6%85%8B%E7%82%BA%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E3%80%82%0AThe%20idle%20player%20has%20logged%20into%20the%20game%20lobby%20and%20their%20status%20is%20%22Idle.%22%0A-%20%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E5%B7%B2%E5%89%B5%E5%BB%BA%E4%BA%86%E4%B8%80%E5%80%8B%E7%A7%81%E4%BA%BA%E6%88%BF%E9%96%93%E3%80%82%0AThe%20room%20creator%20has%20created%20a%20private%20room.%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E6%9C%89%E7%8E%A9%E5%AE%B6%E8%99%95%E6%96%BC%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E7%9A%84%E7%8B%80%E6%85%8B%E3%80%82%0AThere%20are%20players%20in%20an%20%22idle%22%20state.%0A-%20%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E5%90%91%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%E7%99%BC%E5%87%BA%E9%82%80%E8%AB%8B%E3%80%82%0AThe%20room%20creator%20sends%20an%20invitation%20to%20the%20idle%20players.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E5%90%91**%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E7%9A%84%E7%8E%A9%E5%AE%B6**%E7%99%BC%E5%87%BA%E9%82%80%E8%AB%8B%EF%BC%8C%E4%B8%A6%E5%B0%87%E9%82%80%E8%AB%8B%E8%A8%8A%E6%81%AF%E7%99%BC%E9%80%81%E8%87%B3%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E3%80%82%0AThe%20**room%20creator**%20sends%20an%20invitation%20to%20the%20**idle%20players**%20and%20transmits%20the%20invitation%20message%20to%20the%20game%20lobby%20server.%0A2.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E9%82%80%E8%AB%8B%E8%A8%8A%E6%81%AF%E5%82%B3%E9%80%81%E7%B5%A6**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%EF%BC%8C%E8%A9%A2%E5%95%8F%E6%98%AF%E5%90%A6%E6%8E%A5%E5%8F%97%E9%82%80%E8%AB%8B%E3%80%82%0AThe%20**game%20lobby%20server**%20sends%20the%20invitation%20message%20to%20the%20**idle%20players**%2C%20asking%20if%20they%20accept%20the%20invitation.%0A3.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E9%81%B8%E6%93%87%E6%8E%A5%E5%8F%97%E9%82%80%E8%AB%8B%E3%80%82%0AThe%20**idle%20player**%20chooses%20to%20accept%20the%20invitation.%0A4.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E9%80%9A%E7%9F%A5**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%82%80%E8%AB%8B%E5%B7%B2%E8%A2%AB%E6%8E%A5%E5%8F%97%E3%80%82%0AThe%20**game%20lobby%20server**%20notifies%20the%20**room%20creator**%20that%20the%20invitation%20has%20been%20accepted.%0A5.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%90%91**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E8%AB%8B%E6%B1%82%E8%A9%B2%E6%88%BF%E9%96%93%E7%9A%84%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8IP%E5%92%8Cport%E8%99%9F%E3%80%82%0AThe%20**game%20lobby%20server**%20requests%20the%20game%20server's%20IP%20and%20port%20number%20for%20the%20room%20from%20the%20**room%20creator**.%0A6.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%96%8B%E5%95%9F%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E4%B8%A6%E5%B0%87IP%E5%92%8Cport%E8%99%9F%E5%82%B3%E9%80%81%E7%B5%A6%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E3%80%82%0AThe%20**room%20creator**%20starts%20the%20game%20server%20and%20sends%20the%20IP%20and%20port%20number%20to%20the%20game%20lobby%20server.%0A7.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E7%9A%84%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8IP%E5%92%8Cport%E8%99%9F%E7%99%BC%E9%80%81%E7%B5%A6%E6%8E%A5%E5%8F%97%E9%82%80%E8%AB%8B%E7%9A%84**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E3%80%82%0AThe%20**game%20lobby%20server**%20sends%20the%20room%20creator's%20game%20server%20IP%20and%20port%20number%20to%20the%20accepting%20**idle%20player**.%0A8.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E4%BD%BF%E7%94%A8%E6%94%B6%E5%88%B0%E7%9A%84IP%E5%92%8Cport%E8%99%9F%E9%80%A3%E6%8E%A5%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%B8%A6%E6%88%90%E5%8A%9F%E5%8A%A0%E5%85%A5%E9%81%8A%E6%88%B2%E3%80%82%0AThe%20**idle%20player**%20uses%20the%20received%20IP%20and%20port%20number%20to%20connect%20to%20the%20game%20server%20and%20successfully%20joins%20the%20game.%0A9.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E5%85%A7%E6%89%80%E6%9C%89%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AThe%20**game%20lobby%20server**%20updates%20the%20status%20of%20all%20players%20in%20the%20room%20to%20%22In%20Game.%22%0A10.%20%E9%81%8A%E6%88%B2%E9%96%8B%E5%A7%8B%E3%80%82%0AGame%20start%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%E6%8B%92%E7%B5%95%E9%82%80%E8%AB%8B**%20(The%20**idle%20player**%20declines%20the%20invitation)%EF%BC%9A%0A%20%20%201.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E9%81%B8%E6%93%87%E6%8B%92%E7%B5%95%E9%82%80%E8%AB%8B%EF%BC%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%80%9A%E7%9F%A5**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%82%80%E8%AB%8B%E8%A2%AB%E6%8B%92%E7%B5%95%E3%80%82%0AThe%20**idle%20player**%20chooses%20to%20decline%20the%20invitation%2C%20and%20the%20game%20lobby%20server%20notifies%20the%20**room%20creator**%20that%20the%20invitation%20has%20been%20declined.%0A%20%20%202.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E4%BB%8D%E4%BF%9D%E6%8C%81%E5%9C%A8%E5%A4%A7%E5%BB%B3%E4%B8%AD%E7%9A%84%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E7%8B%80%E6%85%8B%EF%BC%8C%E4%B8%A6%E5%8F%AF%E4%BB%A5%E9%80%B2%E8%A1%8C%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E3%80%82%0AThe%20**idle%20player**%20remains%20in%20the%20%22Idle%22%20state%20in%20the%20lobby%20and%20can%20perform%20other%20actions.%0A%0A2a.%20**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%95%9F%E5%8B%95%E5%A4%B1%E6%95%97**%20(**Game%20server%20startup%20failed**)%EF%BC%9A%0A%20%20%201.%20%E5%A6%82%E6%9E%9C**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%80%9A%E7%9F%A5**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E5%8A%A0%E5%85%A5%E5%A4%B1%E6%95%97%EF%BC%8C%E4%B8%A6%E8%AE%93%E4%BB%96%E5%80%91%E9%87%8D%E6%96%B0%E9%81%B8%E6%93%87%E6%93%8D%E4%BD%9C%E3%80%82%0AIf%20the%20**room%20creator**%20is%20unable%20to%20start%20the%20game%20server%2C%20the%20game%20lobby%20server%20informs%20the%20**idle%20players**%20that%20the%20join%20attempt%20has%20failed%20and%20prompts%20them%20to%20select%20another%20action.%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(Exception)%0A-%20**%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%8C%AF%E8%AA%A4**%20(**Server%20error**)%EF%BC%9A%0A%20%20%20-%20%E5%A6%82%E6%9E%9C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%84%A1%E6%B3%95%E8%AB%8B%E6%B1%82%E6%88%96%E5%82%B3%E9%81%9E%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%9A%84IP%E5%92%8Cport%E8%99%9F%EF%BC%8C%E5%89%87%E9%80%9A%E7%9F%A5%E7%8E%A9%E5%AE%B6%E5%87%BA%E7%8F%BE%E9%8C%AF%E8%AA%A4%EF%BC%8C%E4%B8%A6%E5%85%81%E8%A8%B1%E7%8E%A9%E5%AE%B6%E9%87%8D%E6%96%B0%E5%98%97%E8%A9%A6%E6%88%96%E9%80%B2%E8%A1%8C%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E3%80%82%0AIf%20the%20game%20lobby%20server%20fails%20to%20request%20or%20transmit%20the%20game%20server's%20IP%20and%20port%20number%2C%20it%20notifies%20the%20players%20of%20an%20error%20and%20allows%20them%20to%20retry%20or%20perform%20other%20actions.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(poscondition)%0A-%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E6%88%90%E5%8A%9F%E9%80%A3%E6%8E%A5%E5%88%B0%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E4%B8%A6%E9%96%8B%E5%A7%8B%E9%81%8A%E6%88%B2%E3%80%82%0AThe%20**idle%20player**%20successfully%20connects%20to%20the%20game%20server%20and%20starts%20the%20game.%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E5%85%A7%E7%8E%A9%E5%AE%B6%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AThe%20**game%20lobby%20server**%20updates%20the%20status%20of%20players%20in%20the%20room%20to%20%22In%20Game.%22%0A-%20%E8%8B%A5%E7%8E%A9%E5%AE%B6%E6%8B%92%E7%B5%95%E9%82%80%E8%AB%8B%EF%BC%8C%E5%89%87%E7%8B%80%E6%85%8B%E4%BF%9D%E6%8C%81%E7%82%BA%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E4%B8%A6%E5%8F%AF%E7%B9%BC%E7%BA%8C%E9%80%B2%E8%A1%8C%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E3%80%82%0AIf%20the%20player%20declines%20the%20invitation%2C%20their%20status%20remains%20%22Idle%2C%22%20and%20they%20can%20continue%20to%20perform%20other%20actions.%0A%0A%23%23%20H.%E5%8A%A0%E5%85%A5%E5%85%AC%E9%96%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%20(Join%20a%20public%20game%20room)%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%20(primary%20actor)%0A-%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%20(Idle%20Peer)**%0A-%20**%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%20(Public%20Room%20Host)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(system)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A-%20**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Game%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(precondition)%0A-%20%E7%8E%A9%E5%AE%B6%E5%B7%B2%E7%B6%93%E7%99%BB%E5%85%A5%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%EF%BC%8C%E4%B8%A6%E4%B8%94%E7%8B%80%E6%85%8B%E7%82%BA%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E3%80%82%0AThe%20player%20has%20logged%20into%20the%20game%20lobby%20and%20their%20status%20is%20%22Idle.%22%0A-%20%E5%A4%A7%E5%BB%B3%E4%B8%AD%E6%9C%89%E5%85%AC%E9%96%8B%E7%9A%84%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E5%8F%AF%E4%BE%9B%E5%8A%A0%E5%85%A5%E3%80%82%0AThere%20are%20public%20game%20rooms%20available%20to%20join%20in%20the%20lobby.%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6%E9%81%B8%E6%93%87%E5%8A%A0%E5%85%A5%E4%B8%80%E5%80%8B%E5%85%AC%E9%96%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E5%8A%9F%E8%83%BD%E3%80%82%0AThe%20idle%20player%20chooses%20to%20join%20a%20public%20game%20room.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E5%9C%A8%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%B8%AD%E9%81%B8%E6%93%87%E4%B8%80%E5%80%8B%E5%85%AC%E9%96%8B%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E5%8A%A0%E5%85%A5%E3%80%82%0AThe%20**idle%20player**%20selects%20a%20public%20game%20room%20to%20join%20in%20the%20game%20lobby.%0A2.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E6%94%B6%E5%88%B0%E7%8E%A9%E5%AE%B6%E7%9A%84%E5%8A%A0%E5%85%A5%E8%AB%8B%E6%B1%82%EF%BC%8C%E4%B8%A6%E5%90%91%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%EF%BC%88%E6%88%BF%E4%B8%BB%EF%BC%89%E8%AB%8B%E6%B1%82%E8%A9%B2%E6%88%BF%E9%96%93%E7%9A%84%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8IP%E5%92%8Cport%E8%99%9F%E3%80%82%0AThe%20**game%20lobby%20server**%20receives%20the%20player's%20join%20request%20and%20requests%20the%20game%20server's%20IP%20and%20port%20number%20for%20the%20room%20from%20the%20room%20creator%20(host).%0A3.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%96%8B%E5%95%9F%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E4%B8%A6%E5%B0%87IP%E5%92%8Cport%E8%99%9F%E5%82%B3%E9%80%81%E7%B5%A6%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E3%80%82%0AThe%20**room%20creator**%20starts%20the%20game%20server%20and%20sends%20the%20IP%20and%20port%20number%20to%20the%20game%20lobby%20server.%0A4.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E7%9A%84%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8IP%E5%92%8Cport%E8%99%9F%E7%99%BC%E9%80%81%E7%B5%A6%E5%8A%A0%E5%85%A5%E7%9A%84%E7%8E%A9%E5%AE%B6%E3%80%82%0AThe%20**game%20lobby%20server**%20sends%20the%20room%20creator's%20game%20server%20IP%20and%20port%20number%20to%20the%20joining%20player.%0A5.%20**%E9%96%92%E7%BD%AE%E4%B8%AD%E7%9A%84%E7%8E%A9%E5%AE%B6**%E4%BD%BF%E7%94%A8%E6%8E%A5%E6%94%B6%E5%88%B0%E7%9A%84IP%E5%92%8Cport%E8%99%9F%EF%BC%8C%E9%80%A3%E6%8E%A5%E5%88%B0%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E7%9A%84%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%B8%A6%E6%88%90%E5%8A%9F%E5%8A%A0%E5%85%A5%E9%81%8A%E6%88%B2%E3%80%82%0AThe%20**idle%20player**%20uses%20the%20received%20IP%20and%20port%20number%20to%20connect%20to%20the%20room%20creator's%20game%20server%20and%20successfully%20joins%20the%20game.%0A6.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E6%88%BF%E9%96%93%E7%8B%80%E6%85%8B%E5%BE%9E%E3%80%8C%E7%AD%89%E5%BE%85%E4%B8%AD%E3%80%8D%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%EF%BC%8C%E4%B8%A6%E5%B0%87%E6%88%BF%E9%96%93%E5%85%A7%E6%89%80%E6%9C%89%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AThe%20**game%20lobby%20server**%20updates%20the%20room%20status%20from%20%22Waiting%22%20to%20%22In%20Game%22%20and%20changes%20the%20status%20of%20all%20players%20in%20the%20room%20to%20%22In%20Game.%22%0A7.%20%E9%81%8A%E6%88%B2%E9%96%8B%E5%A7%8B%E3%80%82%0AGame%20start%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E6%88%BF%E9%96%93%E6%BB%BF%E5%93%A1**%20(**Room%20is%20full**)%EF%BC%9A%0A%20%20%201.%20%E5%A6%82%E6%9E%9C%E6%88%BF%E9%96%93%E5%B7%B2%E7%B6%93%E6%BB%BF%E5%93%A1%EF%BC%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%80%9A%E7%9F%A5%E7%8E%A9%E5%AE%B6%E7%84%A1%E6%B3%95%E5%8A%A0%E5%85%A5%E8%A9%B2%E6%88%BF%E9%96%93%EF%BC%8C%E4%B8%A6%E8%BF%94%E5%9B%9E%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E5%88%97%E8%A1%A8%E4%BE%9B%E7%8E%A9%E5%AE%B6%E9%87%8D%E6%96%B0%E9%81%B8%E6%93%87%E3%80%82%0AIf%20the%20room%20is%20already%20full%2C%20the%20game%20lobby%20server%20notifies%20the%20player%20that%20they%20cannot%20join%20the%20room%20and%20returns%20them%20to%20the%20public%20room%20list%20for%20them%20to%20make%20another%20selection.%0A%0A2a.%20**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%95%9F%E5%8B%95%E5%A4%B1%E6%95%97**%20(**Game%20server%20startup%20failed**)%EF%BC%9A%0A%20%20%201.%20%E5%A6%82%E6%9E%9C%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%80%9A%E7%9F%A5%E7%8E%A9%E5%AE%B6%E5%8A%A0%E5%85%A5%E5%A4%B1%E6%95%97%EF%BC%8C%E4%B8%A6%E8%AB%8B%E7%8E%A9%E5%AE%B6%E9%81%B8%E6%93%87%E5%85%B6%E4%BB%96%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E3%80%82%0AIf%20the%20room%20creator%20is%20unable%20to%20start%20the%20game%20server%2C%20the%20game%20lobby%20server%20notifies%20the%20player%20of%20the%20failed%20joining%20attempt%20and%20prompts%20them%20to%20choose%20another%20public%20room.%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(Exception)%0A-%20**%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%8C%AF%E8%AA%A4**%20(**server%20error**)%EF%BC%9A%0A%20%20%20-%20%E5%A6%82%E6%9E%9C%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%84%A1%E6%B3%95%E8%AB%8B%E6%B1%82%E6%88%96%E5%82%B3%E9%81%9E%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%9A%84IP%E5%92%8Cport%EF%BC%8C%E5%B0%87%E9%80%9A%E7%9F%A5%E7%8E%A9%E5%AE%B6%E5%87%BA%E7%8F%BE%E9%8C%AF%E8%AA%A4%EF%BC%8C%E4%B8%A6%E8%AB%8B%E4%BB%96%E5%80%91%E9%87%8D%E6%96%B0%E5%98%97%E8%A9%A6%E5%8A%A0%E5%85%A5%E6%88%BF%E9%96%93%E3%80%82%0AIf%20the%20game%20lobby%20server%20is%20unable%20to%20request%20or%20relay%20the%20game%20server's%20IP%20and%20port%2C%20it%20will%20notify%20the%20player%20of%20an%20error%20and%20prompt%20them%20to%20retry%20joining%20the%20room.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(poscondition)%0A-%20%E7%8E%A9%E5%AE%B6%E6%88%90%E5%8A%9F%E9%80%A3%E6%8E%A5%E5%88%B0%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E9%81%8A%E6%88%B2%E9%96%8B%E5%A7%8B%EF%BC%8C%E4%B8%A6%E4%B8%94%E6%88%BF%E9%96%93%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AThe%20player%20successfully%20connects%20to%20the%20game%20server%2C%20the%20game%20starts%2C%20and%20the%20room%20status%20is%20updated%20to%20%22In%20Game.%22%0A-%20%E5%9C%A8%E5%85%AC%E9%96%8B%E5%88%97%E8%A1%A8%E4%B8%AD%EF%BC%8C%E7%8E%A9%E5%AE%B6%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%81%8A%E6%88%B2%E4%B8%AD%E3%80%8D%E3%80%82%0AIn%20the%20public%20list%2C%20the%20player's%20status%20is%20updated%20to%20%22In%20Game.%22%0A%0A%23%23%20I.%E9%80%B2%E8%A1%8C%E9%81%8A%E6%88%B2%20(play%20game)%0A%23%23%23%23%20%E4%B8%BB%E8%A6%81%E8%A1%8C%E7%82%BA%E8%80%85%20(primary%20actor)%0A-%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85%20(Room%20Host)**%0A-%20**%E6%88%BF%E9%96%93%E5%8A%A0%E5%85%A5%E8%80%85%20(Room%20Participant)**%0A%0A%23%23%23%23%20%E7%B3%BB%E7%B5%B1%20(system)%0A-%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Lobby%20Server)**%0A-%20**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%20(Game%20Server)**%0A%0A%23%23%23%23%20%E5%85%88%E6%B1%BA%E6%A2%9D%E4%BB%B6%20(precondition)%0A-%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E5%B7%B2%E7%B6%93%E6%88%90%E5%8A%9F%E5%89%B5%E5%BB%BA%E6%88%BF%E9%96%93%E3%80%82%0AThe%20**room%20creator**%20has%20successfully%20created%20the%20room.%0A-%20**%E6%88%BF%E9%96%93%E5%8A%A0%E5%85%A5%E8%80%85**%E5%B7%B2%E5%8A%A0%E5%85%A5%E6%88%BF%E9%96%93%E3%80%82%0AThe%20**room%20joiner**%20has%20successfully%20joined%20the%20room.%0A%0A%23%23%23%23%20%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6%20(trigger%20event)%0A-%20%E6%88%BF%E9%96%93%E5%85%A7%E6%BB%BF%E5%85%A9%E4%BA%BA%E5%BE%8C%EF%BC%8C%E6%A0%B9%E6%93%9A%E5%89%B5%E5%BB%BA%E6%88%BF%E9%96%93%E6%99%82%E9%81%B8%E6%93%87%E7%9A%84%E9%81%8A%E6%88%B2%E8%87%AA%E5%8B%95%E9%96%8B%E5%A7%8B%E3%80%82%0AOnce%20the%20room%20is%20filled%20with%20two%20players%2C%20the%20game%20will%20automatically%20start%20based%20on%20the%20game%20selected%20when%20the%20room%20was%20created.%0A%0A%23%23%23%23%20%E4%B8%BB%E6%88%90%E5%8A%9F%E6%83%85%E5%A2%83%20(Main%20Success%20Scenario)%0A1.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E4%BD%9C%E7%82%BA**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8**%EF%BC%8C%E9%96%8B%E5%95%9F%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E3%80%82%0AThe%20**room%20creator**%2C%20acting%20as%20the%20**game%20server**%2C%20has%20started%20the%20game%20server.%0A2.%20**%E6%88%BF%E9%96%93%E5%8A%A0%E5%85%A5%E8%80%85**%E9%80%9A%E9%81%8E**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%8F%96%E5%BE%97**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E7%9A%84IP%E8%88%87Port%EF%BC%8C%E4%B8%A6%E9%80%A3%E6%8E%A5%E5%88%B0%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E3%80%82%0AThe%20**room%20joiner**%20obtains%20the%20**IP**%20and%20**port**%20of%20the%20**room%20creator**%20through%20the%20**game%20lobby%20server**%20and%20successfully%20connects%20to%20the%20game%20server.%0A3.%20**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E8%88%87**%E6%88%BF%E9%96%93%E5%8A%A0%E5%85%A5%E8%80%85**%E9%80%B2%E8%A1%8C%E9%81%8A%E6%88%B2%E3%80%82%0AThe%20**room%20creator**%20and%20**room%20joiner**%20begin%20the%20game%2C%20with%20both%20players%20actively%20participating%20in%20the%20gameplay.%20The%20game%20server%20manages%20their%20interactions%20and%20game%20state.%0A4.%20%E7%95%B6%E9%81%8A%E6%88%B2%E7%B5%90%E6%9D%9F%E5%BE%8C%20(After%20the%20game%20ends)%EF%BC%9A%0A%20%20%201.%20**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8**%E6%88%96**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%80%9A%E7%9F%A5**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E9%81%8A%E6%88%B2%E5%B7%B2%E7%B5%90%E6%9D%9F%E3%80%82%0A%22The%20game%20server%20or%20room%20creator%20notifies%20the%20game%20lobby%20server%20that%20the%20game%20has%20ended.%22%0A%20%20%202.%20**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E8%87%AA%E5%8B%95%E8%A7%A3%E6%95%A3%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%EF%BC%8C%E4%B8%A6%E5%B0%87%E5%85%A9%E4%BD%8D%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E3%80%82%0A%22The%20game%20lobby%20server%20automatically%20dissolves%20the%20game%20room%20and%20updates%20the%20status%20of%20both%20players%20to%20'idle'.%22%0A%20%20%203.%20%E6%88%BF%E9%96%93%E5%BE%9E%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E5%88%97%E8%A1%A8%E4%B8%AD%E7%A7%BB%E9%99%A4%EF%BC%8C%E5%85%A9%E4%BD%8D%E7%8E%A9%E5%AE%B6%E5%8F%AF%E4%BB%A5%E7%B9%BC%E7%BA%8C%E9%80%B2%E8%A1%8C%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E3%80%82%0A%22The%20room%20is%20removed%20from%20the%20public%20room%20list%2C%20and%20both%20players%20can%20continue%20with%20other%20actions.%22%0A%0A%23%23%23%23%20%E6%93%B4%E5%B1%95%E6%83%85%E5%A2%83%20(Extensions)%0A1a.%20**%E9%81%8A%E6%88%B2%E7%84%A1%E6%B3%95%E9%96%8B%E5%A7%8B**%20(**The%20game%20cannot%20start**)%EF%BC%9A%0A%20%20%201.%20%E8%8B%A5%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%84%A1%E6%B3%95%E5%95%9F%E5%8B%95%E6%88%96%E7%99%BC%E7%94%9F%E9%8C%AF%E8%AA%A4%EF%BC%8C**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%B0%87%E9%80%9A%E7%9F%A5%E7%8E%A9%E5%AE%B6%E9%8C%AF%E8%AA%A4%EF%BC%8C%E4%B8%A6%E5%85%81%E8%A8%B1%E9%87%8D%E8%A9%A6%E6%88%96%E8%A7%A3%E6%95%A3%E6%88%BF%E9%96%93%E3%80%82%0AIf%20the%20game%20server%20fails%20to%20start%20or%20encounters%20an%20error%2C%20the%20**lobby%20server**%20will%20notify%20the%20players%20of%20the%20error%20and%20allow%20them%20to%20either%20retry%20or%20dissolve%20the%20room.%0A%20%20%202.%20%E8%8B%A5%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8port%E5%B7%B2%E8%A2%AB%E7%B6%81%E5%AE%9A%EF%BC%8C**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8**%E6%87%89%E8%A6%81%E8%83%BD%E9%87%8D%E6%96%B0%E9%81%B8%E6%93%87%E5%8F%AF%E4%BB%A5%E7%B6%81%E5%AE%9A%E7%9A%84port%E3%80%82(%E8%87%AA%E5%8B%95%E6%9B%B4%E6%8F%9B%E6%88%96%E9%80%9A%E7%9F%A5**%E6%88%BF%E9%96%93%E5%89%B5%E5%BB%BA%E8%80%85**%E9%87%8D%E6%96%B0%E8%BC%B8%E5%85%A5%E7%AD%89)%0AIf%20the%20game%20server%20port%20is%20already%20bound%2C%20the%20**game%20server**%20should%20be%20able%20to%20reselect%20a%20bindable%20port%20(either%20automatically%20change%20to%20an%20available%20port%20or%20notify%20the%20**room%20creator**%20to%20re-enter%20a%20port%2C%20etc.).%0A%0A2a.%20**%E6%88%BF%E9%96%93%E5%8A%A0%E5%85%A5%E8%80%85%E7%84%A1%E6%B3%95%E9%80%A3%E6%8E%A5%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8**%20(**The%20room%20joiner%20cannot%20connect%20to%20the%20game%20server**)%EF%BC%9A%0A%20%20%201.%20%E8%8B%A5**%E6%88%BF%E9%96%93%E5%8A%A0%E5%85%A5%E8%80%85**%E7%84%A1%E6%B3%95%E6%88%90%E5%8A%9F%E9%80%A3%E6%8E%A5%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8%EF%BC%8C%E5%B0%87%E6%94%B6%E5%88%B0%E9%80%A3%E6%8E%A5%E9%8C%AF%E8%AA%A4%E8%A8%8A%E6%81%AF%EF%BC%8C%E4%B8%A6%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E9%87%8D%E6%96%B0%E9%80%A3%E6%8E%A5%E6%88%96%E9%80%80%E5%87%BA%E6%88%BF%E9%96%93%E3%80%82%0AIf%20the%20**room%20joiner**%20is%20unable%20to%20successfully%20connect%20to%20the%20game%20server%2C%20they%20will%20receive%20a%20connection%20error%20message%20and%20can%20choose%20to%20reconnect%20or%20exit%20the%20room.%0A%0A%23%23%23%23%20%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81%20(exception)%0A-%20**%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%8C%AF%E8%AA%A4**%20(**server%20error**)%EF%BC%9A%0A%20%20%20-%20%E8%8B%A5**%E9%81%8A%E6%88%B2%E4%BC%BA%E6%9C%8D%E5%99%A8**%E6%88%96**%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%BC%BA%E6%9C%8D%E5%99%A8**%E5%9C%A8%E9%81%8A%E6%88%B2%E9%81%8E%E7%A8%8B%E4%B8%AD%E7%99%BC%E7%94%9F%E9%8C%AF%E8%AA%A4%EF%BC%8C%E9%81%8A%E6%88%B2%E5%B0%87%E8%A2%AB%E4%B8%AD%E6%AD%A2%EF%BC%8C%E4%B8%A6%E9%80%9A%E7%9F%A5%E5%85%A9%E4%BD%8D%E7%8E%A9%E5%AE%B6%E9%87%8D%E6%96%B0%E9%80%B2%E8%A1%8C%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%E3%80%82%0AIf%20an%20error%20occurs%20in%20the%20**game%20server**%20or%20**lobby%20server**%20during%20the%20game%2C%20the%20game%20will%20be%20terminated%2C%20and%20both%20players%20will%20be%20notified%20to%20perform%20other%20operations.%0A%0A%23%23%23%23%20%E5%BE%8C%E7%BD%AE%E6%A2%9D%E4%BB%B6%20(postcondition)%0A-%20**%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93**%E8%87%AA%E5%8B%95%E8%A7%A3%E6%95%A3%EF%BC%8C%E5%85%A9%E4%BD%8D%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%8B%80%E6%85%8B%E6%9B%B4%E6%96%B0%E7%82%BA%E3%80%8C%E9%96%92%E7%BD%AE%E3%80%8D%E3%80%82%0AThe%20**game%20room**%20will%20automatically%20dissolve%2C%20and%20both%20players'%20statuses%20will%20be%20updated%20to%20%22idle.%22%0A-%20%E5%85%A9%E4%BD%8D%E7%8E%A9%E5%AE%B6%E5%8F%AF%E4%BB%A5%E5%9C%A8%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E4%B8%AD%E5%9F%B7%E8%A1%8C%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C%EF%BC%88%E5%A6%82%E5%89%B5%E5%BB%BA%E6%96%B0%E6%88%BF%E9%96%93%E3%80%81%E5%8A%A0%E5%85%A5%E5%85%AC%E9%96%8B%E6%88%BF%E9%96%93%E7%AD%89%EF%BC%89%E3%80%82%0ABoth%20players%20can%20perform%20other%20actions%20in%20the%20game%20lobby%2C%20such%20as%20creating%20a%20new%20room%20or%20joining%20a%20public%20room.%0A%0A%23%23%20%E6%B5%81%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9C%96%20(Sequence%20Diagram)%0A!%5BUntitled%20diagram-2024-10-10-164255%5D(https%3A%2F%2Fhackmd.io%2F_uploads%2FS1iENYrykx.png)%0A%0A%0A%23%23%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85%0A1.%20%20%E5%9C%96%E7%89%87%E5%83%85%E4%BE%9B%E5%90%8C%E5%AD%B8%E6%9B%B4%E4%BA%86%E8%A7%A3%E6%B5%81%E7%A8%8B%E7%94%A8%EF%BC%8C%E5%AF%A6%E4%BD%9C%E7%B4%B0%E7%AF%80%E8%AB%8B%E4%BB%A5%E6%96%87%E5%AD%97%E6%8F%8F%E8%BF%B0%E7%82%BA%E4%B8%BB%E3%80%82%0AThe%20images%20are%20provided%20for%20students%20to%20better%20understand%20the%20process%3B%20please%20focus%20on%20textual%20descriptions%20for%20implementation%20details.%0A2.%20%20%E4%B8%8D%E9%99%90%E5%88%B6%E5%AF%A6%E4%BD%9C%E8%AA%9E%E8%A8%80%E3%80%82%0AThere%20are%20no%20restrictions%20on%20the%20implementation%20language%0A3.%09%E6%89%80%E6%9C%89%E5%AF%A6%E4%BD%9C%E8%AB%8B%E4%BD%BF%E7%94%A8TCP%E5%8D%94%E5%AE%9A%E3%80%82%0AAll%20implementations%20must%20use%20the%20TCP%20protocol%0A4.%09%E6%89%80%E6%9C%89%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84port%E8%AB%8B%E8%A8%AD%E5%9C%A810000%E4%BB%A5%E4%B8%8A%E3%80%82%0AAll%20ports%20used%20must%20be%20set%20above%2010%2C000.%0A5.%09Demo%E6%99%82%E6%9C%83%E8%AB%8B%E5%90%8C%E5%AD%B8%E6%8A%8A%E5%85%A9%E6%94%AF%E7%A8%8B%E5%BC%8F%E6%94%BE%E5%88%B0%E7%B3%BB%E8%A8%88%E4%B8%ADServer%E4%B8%8A%E8%B7%91%EF%BC%8C%E5%BB%BA%E8%AD%B0%E9%96%8B%E7%99%BC%E6%99%82%E7%94%A8%E7%B3%BB%E8%A8%88%E4%B8%ADserver%E6%B8%AC%E8%A9%A6%E7%82%BA%E4%B8%BB%E3%80%82%0ADuring%20the%20demo%2C%20students%20will%20be%20asked%20to%20run%20both%20programs%20on%20the%20server%20in%20the%20system.%20It%20is%20recommended%20to%20primarily%20test%20on%20the%20server%20in%20the%20system%20during%20development.%0A6.%09%E8%AB%8B%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E7%B3%BB%E8%A8%88%E4%B8%ADserver%E6%B2%92%E6%9C%89%E7%9A%84library%EF%BC%8C%E4%BB%A5%E5%85%8D%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E5%9F%B7%E8%A1%8C%E3%80%82%0APlease%20avoid%20using%20libraries%20that%20are%20not%20available%20on%20the%20server%20in%20the%20system%20to%20ensure%20proper%20execution%0A7.%09%E9%81%8A%E6%88%B2%E8%AB%8B%E8%A8%AD%E8%A8%882%E5%80%8B%E4%BB%A5%E4%B8%8A%EF%BC%8C%E9%A1%9E%E5%9E%8B%E4%B8%8D%E9%99%90%E3%80%82%0APlease%20design%20at%20least%20two%20games%2C%20of%20any%20type%0A8.%09Public%20room%E4%B8%80%E5%AE%9A%E8%A6%81%E9%A1%AF%E7%A4%BA%E5%9C%A8%E5%85%AC%E9%96%8B%E5%88%97%E8%A1%A8%E4%B8%AD%EF%BC%8CPrivate%20room%E5%89%87%E5%8F%AF%E9%A1%AF%E7%A4%BA%E5%8F%AF%E4%B8%8D%E9%A1%AF%E7%A4%BA%E3%80%82%0APublic%20rooms%20must%20be%20displayed%20in%20the%20public%20list%2C%20while%20private%20rooms%20can%20choose%20whether%20or%20not%20to%20display%0A9.%09%E6%89%80%E6%9C%89client%E7%AB%AF%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%EF%BC%8C%E5%9C%A8%E9%81%8A%E6%88%B2%E9%96%8B%E5%A7%8B%E5%89%8D%E9%83%BD%E6%87%89%E8%A9%B2%E9%80%8F%E9%81%8Elobby%20server%E9%80%B2%E8%A1%8C%E3%80%82%0AAll%20communication%20between%20clients%20before%20the%20game%20starts%20should%20go%20through%20the%20lobby%20server%0A10.%09%E9%81%8A%E6%88%B2%E9%96%8B%E5%A7%8B%E5%BE%8C%E6%98%AFpeer%20to%20peer%E7%9A%84%E9%80%A3%E7%B7%9A%EF%BC%8C%E9%81%8A%E6%88%B2%E5%88%A4%E6%96%B7%E4%B8%8D%E9%9C%80%E8%A6%81%E9%80%8F%E9%81%8Elobby%20server%E3%80%82%0AAfter%20the%20game%20starts%2C%20the%20connection%20is%20peer-to-peer%2C%20and%20game%20validation%20does%20not%20need%20to%20go%20through%20the%20lobby%20server%0A11.%09%E8%8B%A5%E6%B2%92%E6%9C%89%E9%81%94%E6%88%90%E8%A6%81%E6%B1%82%EF%BC%8C%E6%9C%83%E6%96%9F%E9%85%8C%E6%89%A3%E5%88%86%EF%BC%8C%E8%8B%A5%E5%9C%A8%E6%9C%AC%E4%BD%9C%E6%A5%AD%E4%B8%8D%E6%98%AF%E4%BB%A5lobby%20server%E6%BA%9D%E9%80%9A%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BD%A0%E5%8F%AF%E8%83%BD%E6%8B%BF%E5%88%B0%E9%9B%B6%E5%88%86%E3%80%82%0AIf%20the%20requirements%20are%20not%20met%2C%20points%20may%20be%20deducted.%20Specifically%2C%20if%20this%20assignment%20does%20not%20utilize%20lobby%20server%20communication%2C%20you%20may%20receive%20a%20score%20of%20zero.%0A12.%09%E8%8B%A5%E5%B0%8D%E9%A1%8C%E7%9B%AE%E6%9C%89%E4%BB%BB%E4%BD%95%E7%96%91%E5%95%8F%EF%BC%8C%E6%88%96%E6%98%AF%E9%81%87%E5%88%B0%E5%AF%A6%E4%BD%9C%E4%B8%8A%E5%95%8F%E9%A1%8C%EF%BC%8C%E6%AD%A1%E8%BF%8E%E5%90%8C%E5%AD%B8%E5%9C%A8%E4%B8%8A%E6%A9%9F%E8%AA%B2%E7%9A%84%E6%99%82%E5%80%99%E8%A9%A2%E5%95%8F%E5%8A%A9%E6%95%99%EF%BC%8C%E6%88%96%E6%98%AF%E9%80%8F%E9%81%8EE3%E5%AF%84%E4%BF%A1%E7%99%BC%E5%95%8F%EF%BC%8C%E8%AB%8B%E7%9B%A1%E9%87%8F%E4%B8%8D%E8%A6%81%E7%9B%B4%E6%8E%A5%E5%AF%84%E4%BF%A1%EF%BC%8C%E9%81%BF%E5%85%8D%E5%8A%A9%E6%95%99%E6%BC%8F%E6%8E%89%E3%80%82%0AIf%20you%20have%20any%20questions%20about%20the%20assignment%20or%20encounter%20any%20implementation%20issues%2C%20feel%20free%20to%20ask%20the%20TA%20during%20lab%20sessions%20or%20send%20an%20inquiry%20via%20E3.%20Please%20try%20to%20avoid%20sending%20emails%20directly%20to%20prevent%20the%20TA%20from%20missing%20your%20message.%0A13.%09Demo%20deadline%E5%89%8D%E5%8F%AF%E4%BB%A5%E9%87%8D%E8%A4%87Demo%E7%9B%B4%E5%88%B0%E4%BD%A0%E5%88%86%E6%95%B8%E6%BB%BF%E6%84%8F%E7%82%BA%E6%AD%A2%E3%80%82%0AYou%20can%20repeat%20the%20demo%20until%20you%20are%20satisfied%20with%20your%20score%20before%20the%20demo%20deadline.%0A%0A%23%23%20%E8%A9%95%E5%88%86%E6%A8%99%E6%BA%96%20(Grading%20Criteria)%0A1.%20%20%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E7%8E%A9%E5%AE%B6%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E8%A8%BB%E5%86%8A%E7%9A%84%E5%8A%9F%E8%83%BD%20(10%25)%0AComplete%20implementation%20of%20the%20player%20registration%20function%20in%20the%20game%20lobby%20(10%25)%0A2.%09%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E7%8E%A9%E5%AE%B6%E9%81%8A%E6%88%B2%E5%A4%A7%E5%BB%B3%E7%99%BB%E5%85%A5%E7%9A%84%E5%8A%9F%E8%83%BD%20(10%25)%0AComplete%20implementation%20of%20the%20player%20login%20function%20in%20the%20game%20lobby%20(10%25)%0A3.%20%20%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E7%99%BB%E5%87%BA%E5%8A%9F%E8%83%BD%20(10%25)%0AComplete%20implementation%20of%20the%20logout%20function%20(10%25)%0A4.%20%20%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E5%A4%A7%E5%BB%B3List%E5%8A%9F%E8%83%BD%20(10%25)%0AComplete%20implementation%20of%20the%20lobby%20list%20function%20(10%25)%0A5.%20%20%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E5%89%B5%E5%BB%BA%E6%88%BF%E9%96%93%E5%8A%9F%E8%83%BD%20(10%25)%0AComplete%20implementation%20of%20the%20room%20creation%20function%20(10%25)%0A6.%20%20%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E7%AD%89%E5%BE%85%E5%85%B6%E4%BB%96%E7%8E%A9%E5%AE%B6%E9%82%80%E8%AB%8B%E5%8A%9F%E8%83%BD%20%20(10%25)%0AComplete%20implementation%20of%20the%20functionality%20to%20wait%20for%20invitations%20from%20other%20players%20(10%25)%0A7.%20%20%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E5%8A%A0%E5%85%A5%E9%81%8A%E6%88%B2%E6%88%BF%E9%96%93%E5%8A%9F%E8%83%BD%20%20(10%25)%0AComplete%20implementation%20of%20the%20function%20to%20join%20game%20rooms%20(10%25)%0A8.%09%E5%AE%8C%E6%95%B4%E5%AF%A6%E4%BD%9C%E9%80%B2%E8%A1%8C%E9%81%8A%E6%88%B2%E5%8A%9F%E8%83%BD%20%20(10%25)%0AComplete%20implementation%20of%20the%20function%20to%20play%20the%20game%20(10%25)%0A9.%09%E9%81%8A%E6%88%B2%E8%B6%A3%E5%91%B3%E6%80%A7(%E9%81%8A%E6%88%B2%E8%A4%87%E9%9B%9C%E5%BA%A6%E3%80%81%E9%81%8A%E6%88%B2%E7%89%B9%E6%AE%8A%E6%80%A7)%20(10%25)%0AGame%20enjoyment%20(game%20complexity%2C%20uniqueness%20of%20the%20game)%20(10%25)%0A10.%20%E9%98%B2%E7%88%86%20(10%25)%0AAnti-cheat%20measures%20(10%25)","viewMode":"publish","isOwner":false,"isSignIn":false,"isLiked":false,"isBookmarked":false,"publishType":"view","commentCount":0,"isNotesRecommendationsEnabled":true,"recommendedNotes":[],"lastChangeUserInfo":{"name":"wei0107","path":"wei0107","avatarUrl":"https%3A%2F%2Fuploads-public.hackmd.io%2Fupload_743a28d95f93e9cb1c029eafdf1078cf.jpeg"}}`);
+  (function () {
+    const decodeStringProps = (props) => {
+      for (const key in props) {
+        if (typeof props[key] === 'string') {
+          props[key] = decodeURIComponent(props[key])
+        } else if (typeof props[key] === 'object') {
+          decodeStringProps(props[key])
+        }
+      }
+    }
+    decodeStringProps(window.publishProps)
+  })()
+</script>
+
+    <meta id="style-tag-insertion" />
+
+    <script src="https://tally.so/widgets/embed.js"></script>
+
+    
+</head>
+
+<body style="display:none;">
+    <div id="publish-page"># HW2-雙人連機遊戲 Part 2 (two-player online game part 2)
+
+## Timeline
+Demo Deadline 2024/11/11(一) or 2024/11/14(四) 視教學進度而定 
+
+## Introduction
+
+這次作業的目標是改變HW1玩家之間的連線方式，從原本兩名玩家透過 TCP/UDP 直接進行點對點連線，改為透過中央的 lobby server 溝通協調後，再以點對點方式開始遊戲。學生需要完成並Demo兩個程式：lobby server 和 client。client 端必須具備註冊、登入及登出的功能，並且使用者須透過一組 username 和 password 進行操作。當 client 登入後，lobby server 需要顯示當前線上玩家的狀況，並允許玩家建立遊戲房間或加入其他玩家的房間，進而開始遊戲。
+
+The goal of this assignment is to modify the connection method between players from HW1. Instead of having two players connect directly via TCP/UDP in a peer-to-peer manner, the connection should now be coordinated through a central lobby server before the game starts in a peer-to-peer mode. Students are required to complete and demonstrate two programs: a lobby server and a client. The client must support functions for registration, login, and logout, and users should operate using a username and password. After a client logs in, the lobby server should display the current status of online players and allow players to create game rooms or join other players&#39; rooms to start the game.
+
+## A.運行大廳server (Run the lobby server)
+#### 主要行為者
+- **伺服器管理員 (Server Administrator)**
+
+#### 系統 (System)
+- **遊戲大廳伺服器 (Lobby Server)**
+
+#### 先決條件
+- 登入系計中Linux server。
+
+#### 觸發事件
+- 啟動遊戲大廳伺服器。
+
+#### 主成功情境 (Main Success Scenario)
+1. 執行遊戲大廳伺服器程式，並指定必要的參數（如port號等）。
+Run the game lobby server program and specify the necessary parameters (such as the port number, etc.).
+2. 系統成功啟動遊戲大廳伺服器，並顯示伺服器運行狀態的訊息。
+The system successfully started the game lobby server and displayed a message showing the server&#39;s running status.
+3. 伺服器準備好接收來自玩家的連接請求。
+The server is ready to receive connection requests from players.
+
+#### 擴展情境 (Extension)
+1a. **啟動失敗 (primary actor)**：
+   1. 如果伺服器程式無法啟動（例如因為port已被佔用或錯誤的配置），則顯示錯誤訊息。
+If the server program fails to start (for example, due to the port being occupied or incorrect configuration), an error message is displayed.
+   2. 伺服器管理員需要檢查錯誤訊息，進行必要的故障排除後重新嘗試啟動。
+The server administrator needs to check the error message, perform the necessary troubleshooting, and then retry starting the server.
+
+#### 後置條件 (postconditions)
+- 大廳伺服器成功運行後，所有玩家可以開始連接到該伺服器，並進行遊戲相關操作。
+After the lobby server is successfully running, all players can start connecting to the server and perform game-related operations.
+
+## B.註冊 (Register)
+
+#### 主要行為者 (primary actor)
+- **玩家 (Client)**
+
+#### 系統 (system)
+- **遊戲大廳伺服器 (Lobby Server)**
+
+#### 先決條件 (preconditions)
+- 遊戲大廳伺服器正在運行，允許新玩家註冊。
+The game lobby server is running, allowing new players to register.
+
+#### 觸發事件 (trigger event)
+- 玩家選擇註冊新帳號。
+The player chooses to register a new account.
+
+#### 主成功情境 (Main Success Scenario)
+1. 玩家開啟遊戲客戶端並選擇註冊。
+The player opens the game client and selects to register.
+2. 玩家輸入玩家名稱和一組密碼。
+The player enters a username and a password.
+3. 遊戲大廳伺服器驗證玩家名稱是否已經存在。
+The game lobby server verifies whether the username already exists.
+4. 如果玩家名稱不存在，遊戲大廳伺服器將玩家名稱和密碼儲存。
+If the username does not exist, the game lobby server will store the username and password.
+5. 玩家成功註冊，並收到確認訊息。
+The player successfully registers and receives a confirmation message.
+
+#### 擴展情境 (Extensions)
+1a. **玩家名稱重複 (The username is already taken)**：
+   1. 遊戲大廳伺服器發現玩家名稱已經被註冊。
+   The game lobby server finds that the username has already    been registered.
+   2. 伺服器回應 &#34;使用者名稱已存在&#34; 錯誤訊息。
+The server responds with an error message: &#34;Username already exists.&#34;
+   3. 玩家收到錯誤提示，要求輸入另一個名稱進行註冊。
+The player receives an error prompt, requesting them to enter another username for registration.
+
+#### 例外狀況 (Exception)
+- 遊戲大廳伺服器關閉 (The game lobby server is shutting down)：
+   - 伺服器關閉後不需要保存玩家註冊資料，所有資料不會寫入檔案，也不會持久化。
+After the server shuts down, there is no need to save player registration data; all information will not be written to files and will not be persisted.
+
+#### 後置條件 (postconditions)
+- 玩家成功註冊後，執行登入操作。
+After the player successfully registers, they proceed to the login operation.
+
+## C.登入 (Login)
+
+#### 主要行為者  (primary actor)
+- **玩家 (Client)**
+
+#### 系統 (System)
+- **遊戲大廳伺服器 (Lobby Server)**
+
+#### 先決條件 (precondition)
+1. 遊戲大廳伺服器必須處於運行狀態，並且玩家之前已經註冊。
+The game lobby server must be running, and the player must have registered previously.
+
+#### 觸發事件 (trigger event)
+- 玩家選擇登入遊戲大廳。
+The player chooses to log into the game lobby.
+
+#### 主成功情境 (Main Success Scenario)
+1. 玩家開啟遊戲客戶端並選擇登入。
+The player opens the game client and selects to log in.
+2. 玩家輸入使用者名稱。
+The player enters the username.
+3. 遊戲大廳伺服器驗證使用者名稱是否存在。
+The game lobby server verifies whether the username exists.
+4. 如果使用者名稱存在，遊戲大廳伺服器提示玩家輸入密碼
+If the username exists, the game lobby server prompts the player to enter their password.
+5. 遊戲大廳伺服器驗證密碼正確性。
+The game lobby server verifies the correctness of the password.
+6. 驗證通過後，玩家成功登入遊戲大廳。
+After the verification is successful, the player logs into the game lobby.
+8. 玩家能夠看到當前所有的遊戲房間和其他在線玩家。
+The player is able to see all current game rooms and other online players.
+
+#### 擴展情境 (Extensions)
+1a. **玩家未註冊 (The player is not registered)**：
+   1. 遊戲大廳伺服器發現該玩家並未註冊，回應 &#34;使用者不存在&#34; 錯誤訊息。
+The game lobby server discovers that the player is not registered and responds with the error message: &#34;User does not exist.&#34;
+   2. 玩家收到錯誤提示，無法登入，並提示進行註冊。
+The player receives an error prompt, unable to log in, and is advised to register.
+
+2a. **密碼錯誤 (Incorrect password)**：
+   1. 玩家輸入的密碼錯誤。
+The password entered by the player is incorrect.
+   2. 遊戲大廳伺服器回應 &#34;密碼錯誤&#34; 錯誤訊息。
+The game lobby server responds with the error message: &#34;Incorrect password.&#34;
+   3. 玩家收到錯誤提示，重新嘗試登入。
+The player receives an error prompt and tries to log in again.
+
+#### 例外狀況 (Exception)
+- 遊戲大廳伺服器崩潰或無法連線 (The game lobby server crashes or cannot connect)：
+   - 玩家無法登入，顯示連線錯誤訊息。
+The player is unable to log in, and a connection error message is displayed.
+
+#### 後置條件 (poscondition)
+- 玩家成功登入後，玩家狀態表示為「閒置中」，且能夠看到線上狀況
+After successfully logging in, the player&#39;s status is shown as &#34;idle,&#34; and they can view the online status of other players
+
+## D.登出 (Logout)
+- **玩家 (client)**
+
+#### 系統 (System)
+- **遊戲大廳伺服器 (Lobby Server)**
+
+#### 先決條件 (precondition)
+- 玩家已經登入遊戲大廳並在線上。
+The player has logged into the game lobby and is online.
+
+#### 觸發事件 (trigger event)
+- 玩家選擇從遊戲大廳登出。
+The player chooses to log out from the game lobby.
+
+#### 主成功情境 (Main Success Scenario)
+1. 玩家在遊戲大廳中選擇「登出」選項。
+The player selects the &#34;Log Out&#34; option in the game lobby.
+2. 系統接收到登出請求。
+The system receives the logout request.
+3. 遊戲大廳伺服器處理登出請求 (The game lobby server processes the logout request)：
+   - 移除該玩家的狀態，並從線上玩家列表中刪除。
+The player&#39;s status is removed, and they are deleted from the online players list.
+4. 系統確認登出成功，並向玩家顯示登出訊息。
+The system confirms a successful logout and displays a logout message to the player.
+5. 玩家成功登出，返回到登入/註冊界面。
+The player successfully logs out and returns to the login/register screen.
+
+#### 擴展情境 (Extensions)
+1a. **登出失敗 (Logout failed)**：
+   1. 如果伺服器在處理登出請求時遇到錯誤（例如伺服器崩潰或網絡問題），則顯示錯誤訊息。
+If the server encounters an error while processing the logout request (such as a server crash or network issues), an error message is displayed.
+   2. 玩家可以選擇重試登出。
+The player can choose to retry logging out.
+
+#### 例外狀況 (Exception)
+- **伺服器錯誤 (Server error)**：
+   - 若遊戲大廳伺服器無法成功登出玩家，將顯示錯誤訊息。
+If the game lobby server cannot successfully log out the player, an error message will be displayed.
+
+#### 後置條件 (Postcondition)
+- 玩家登出後，將不再顯示在線上玩家列表中，並無法執行任何遊戲操作，直到重新登入。
+After logging out, the player will no longer be displayed in the online players list and will not be able to perform any game actions until they log in again.
+
+## E.顯示線上情形 (Display online status)
+#### 主要行為者  (primary actor)
+- **玩家 (Client)**
+
+#### 系統 (System)
+- **遊戲大廳伺服器 (Lobby Server)**
+
+#### 先決條件 (precondition)
+- 玩家已經登入遊戲大廳伺服器。
+The player has logged into the game lobby server.
+
+#### 觸發事件 (trigger event)
+- 玩家登入後自動觸發。
+The player has logged into the game lobby server.
+
+#### 主成功情境 (Main Success Scenario)
+1. 玩家進入遊戲大廳，伺服器自動顯示以下資訊 (The player enters the game lobby, and the server automatically displays the following information)：
+   - 當前線上的所有玩家名稱以及狀態(例如:遊戲中、閒置中)。
+The names and statuses of all currently online players (e.g., playing, idle).
+   - 所有公開遊戲的房間(包含創建者、遊戲類型、房間狀態)。
+All public game rooms (including the creator, game type, and room status).
+2. 當有玩家登出時，遊戲大廳會從列表中移除該玩家。
+When a player logs out, the game lobby will remove that player from the list.
+
+#### 擴展情境 (Extensions)
+1a. **無玩家在線 (No players online)**：
+   1. 如果遊戲大廳中沒有玩家在線，顯示 &#34;目前無玩家在線&#34; 訊息。
+       If there are no players online in the game lobby, display the message &#34;Currently, no players are online.&#34;
+       
+2a. **無公開遊戲房間 (No public game rooms available)**：
+   1. 如果沒有任何公開遊戲房間正在等待對手，顯示 &#34;無公開房間等待玩家&#34; 訊息。
+If there are no public game rooms waiting for players, display the message &#34;No public rooms waiting for players.&#34;
+
+#### 例外狀況 (Exception)
+- 伺服器無法更新線上玩家狀態 (The server is unable to update the online player status)：
+   - 如果遊戲大廳伺服器發生錯誤或無法連線，玩家無法看到正確的線上玩家列表和公開房間資訊。
+If the game lobby server encounters an error or cannot connect, players will not be able to see the correct online player list and public room information.
+#### 後置條件 (poscondition)
+- 玩家可以根據顯示的公開房間和線上玩家列表，等待其他玩家邀請或選擇要執行的以下操作 (Players can wait for invitations from other players or choose to perform the following actions based on the displayed public rooms and online player list)：
+    1. 在 lobby server 上建立遊戲房間
+Create a game room on the lobby server.
+    3. 加入public room
+Join a public room.
+    4. 登出
+Logout
+
+
+## F.建立遊戲房間並 邀請其他玩家加入 / 等待其他人主動加入 (Create a game room and invite other players to join / wait for others to join proactively.)
+
+#### 主要行為者 (primary actor)
+- **房間創建者 (Room Host)**
+- **閒置中的玩家 (Idle Peer)**
+
+#### 系統 (system)
+- **遊戲大廳伺服器 (Lobby Server)**
+- **遊戲伺服器 (Game Server)**
+
+#### 先決條件 (precondition)
+- 房間創建者已經登入遊戲大廳，並處於「閒置」狀態。
+The room creator is logged into the game lobby and is in an &#34;idle&#34; state.
+#### 觸發事件 (trigger event)
+- 房間創建者選擇在遊戲大廳中創建遊戲房間。
+The room creator chooses to create a game room in the game lobby.
+
+#### 主成功情境 (Main Success Scenario)
+1. **房間創建者**在遊戲大廳中選擇「創建房間」功能。
+The **room creator** selects the &#34;Create Room&#34; feature in the game lobby.
+2. **房間創建者**選擇遊戲類型，至少要有&lt;span style=&#34;color:red;&#34;&gt;2種以上&lt;/span&gt;的遊戲可以選擇。
+The **room creator** selects a game type, with at least &lt;span style=&#34;color:red;&#34;&gt;two or more&lt;/span&gt; games available for selection.
+3. **房間創建者**選擇房間類型 (The **room creator** selects the room type)：
+   - **Public Room (公開房間)**：允許任何玩家查看並加入。
+    **Public Room**: Allows any player to view and join.
+   - **Private Room (私人房間)**：僅能邀請處於「閒置」狀態的玩家加入。
+**Private Room**: Only players who are in an &#34;idle&#34; state can be invited to join.
+   
+4. **Public Room情境** (**Public Room Scenario**)：
+   1. **房間創建者**創建公開房間後，**遊戲大廳伺服器**將該房間顯示在公開房間列表中，所有大廳中的玩家可以看到並選擇加入。
+After the **room creator** creates a public room, the **game lobby server** displays that room in the public room list, allowing all players in the lobby to see it and choose to join.
+   2. 在沒有玩家加入前，**遊戲大廳伺服器**將房間狀態設為「等待中」。
+Before any players join, the **game lobby server** sets the room status to &#34;Waiting.&#34;
+   3. 當有玩家加入房間後，**遊戲大廳伺服器**將房間狀態更新為「遊戲中」，並將房間中的玩家狀態從公開列表中更新為「遊戲中」。
+When a player joins the room, the **game lobby server** updates the room status to &#34;In Game&#34; and changes the status of players in the room from the public list to &#34;In Game.&#34;
+   
+4. **Private Room情境** (**Private Room Scenario**)：
+   1. **房間創建者**創建私人房間後，通過**遊戲大廳伺服器**選擇性邀請其他「閒置」狀態的玩家加入房間。
+After the **room creator** creates a private room, they selectively invite other players who are in an &#34;idle&#34; state to join the room through the **game lobby server**.
+   2. **閒置中的玩家**收到邀請後可以選擇接受或拒絕。
+**Idle players** who receive the invitation can choose to accept or decline it.
+   3. 當**閒置中的玩家**接受邀請並加入房間後，**遊戲大廳伺服器**將玩家的狀態更新為「遊戲中」。
+When an **idle player** accepts the invitation and joins the room, the **game lobby server** updates the player&#39;s status to &#34;In Game.&#34;
+   
+5. **房間狀態更新** (**Room Status Update**)：
+   1. **遊戲大廳伺服器**將房間創建者的狀態設為「房間中」直到有其他玩家加入。
+ The **game lobby server** sets the room creator&#39;s status to &#34;In Room&#34; until other players join.
+   2. 當遊戲開始後，**遊戲大廳伺服器**將房間狀態從「等待中」更新為「遊戲中」，房間不再接受新玩家。
+Once the game starts, the **game lobby server** updates the room status from &#34;Waiting&#34; to &#34;In Game,&#34; and the room will no longer accept new players.
+   3. **房間創建者**與加入的玩家狀態都更新為「遊戲中」。
+The status of both the **room creator** and the joined players is updated to &#34;In Game.&#34;
+
+#### 擴展情境 (Extensions)
+1a. **房間創建失敗** (**Room creation failed**)：
+   1. 若創建遊戲房間失敗，**遊戲大廳伺服器**會通知創建者錯誤訊息，並讓其重新嘗試。
+If the game room creation fails, the **game lobby server** will notify the creator with an error message and allow them to retry.
+
+2a. **玩家拒絕私人房間邀請** (**Player declines the private room invitation**)：
+   1. 若**閒置中的玩家**拒絕邀請，**遊戲大廳伺服器**通知**房間創建者**邀請被拒絕，並允許創建者邀請其他玩家。
+If an **idle player** declines the invitation, the **game lobby server** notifies the **room creator** that the invitation was declined and allows the creator to invite other players.
+
+#### 例外狀況 (Exception)
+- **伺服器錯誤** (**Server error**)：
+   - 若**遊戲大廳伺服器**無法成功處理房間創建、邀請或狀態更新，則會通知玩家發生錯誤並請其重新嘗試。
+If the **game lobby server** is unable to successfully process room creation, invitations, or status updates, it will notify the player that an error has occurred and ask them to retry.
+
+#### 後置條件 (poscondition)
+- **房間創建者**成功建立房間，並等待其他玩家加入。
+The **room creator** successfully establishes the room and waits for other players to join.
+- **公開房間**顯示在大廳的公開房間列表中，並在滿員前表示為「等待中」。
+The **public room** is displayed in the lobby&#39;s public room list and is marked as &#34;Waiting&#34; until it is full.
+- **私人房間**邀請的玩家加入後，狀態更新為「遊戲中」並開始遊戲，房間不再接受新玩家。
+After the invited players join the **private room**, their status is updated to &#34;In Game,&#34; and the game starts; the room will no longer accept new players.
+- 遊戲開始後，房間和玩家的狀態更新為「遊戲中」。
+After the game starts, the room and players&#39; statuses are updated to &#34;In Game.&#34;
+
+## G.等待其他玩家邀請 (Waiting for invitations from other players)
+#### 主要行為者 (primary actor)
+- **閒置中的玩家 (Idle Peer)**
+- **私人房間創建者 (Private Room Host)**
+
+#### 系統 (system)
+- **遊戲大廳伺服器 (Lobby Server)**
+- **遊戲伺服器 (Game Server)**
+
+#### 先決條件 (precondition)
+- 閒置中的玩家已經登入遊戲大廳，並且狀態為「閒置」。
+The idle player has logged into the game lobby and their status is &#34;Idle.&#34;
+- 房間創建者已創建了一個私人房間。
+The room creator has created a private room.
+
+#### 觸發事件 (trigger event)
+- 有玩家處於「閒置」的狀態。
+There are players in an &#34;idle&#34; state.
+- 房間創建者向閒置中的玩家發出邀請。
+The room creator sends an invitation to the idle players.
+
+#### 主成功情境 (Main Success Scenario)
+1. **房間創建者**向**「閒置」的玩家**發出邀請，並將邀請訊息發送至遊戲大廳伺服器。
+The **room creator** sends an invitation to the **idle players** and transmits the invitation message to the game lobby server.
+2. **遊戲大廳伺服器**將邀請訊息傳送給**閒置中的玩家**，詢問是否接受邀請。
+The **game lobby server** sends the invitation message to the **idle players**, asking if they accept the invitation.
+3. **閒置中的玩家**選擇接受邀請。
+The **idle player** chooses to accept the invitation.
+4. **遊戲大廳伺服器**通知**房間創建者**邀請已被接受。
+The **game lobby server** notifies the **room creator** that the invitation has been accepted.
+5. **遊戲大廳伺服器**向**房間創建者**請求該房間的遊戲伺服器IP和port號。
+The **game lobby server** requests the game server&#39;s IP and port number for the room from the **room creator**.
+6. **房間創建者**開啟遊戲伺服器，並將IP和port號傳送給遊戲大廳伺服器。
+The **room creator** starts the game server and sends the IP and port number to the game lobby server.
+7. **遊戲大廳伺服器**將房間創建者的遊戲伺服器IP和port號發送給接受邀請的**閒置中的玩家**。
+The **game lobby server** sends the room creator&#39;s game server IP and port number to the accepting **idle player**.
+8. **閒置中的玩家**使用收到的IP和port號連接遊戲伺服器並成功加入遊戲。
+The **idle player** uses the received IP and port number to connect to the game server and successfully joins the game.
+9. **遊戲大廳伺服器**將房間內所有玩家的狀態更新為「遊戲中」。
+The **game lobby server** updates the status of all players in the room to &#34;In Game.&#34;
+10. 遊戲開始。
+Game start
+
+#### 擴展情境 (Extensions)
+1a. **閒置中的玩家拒絕邀請** (The **idle player** declines the invitation)：
+   1. **閒置中的玩家**選擇拒絕邀請，遊戲大廳伺服器通知**房間創建者**邀請被拒絕。
+The **idle player** chooses to decline the invitation, and the game lobby server notifies the **room creator** that the invitation has been declined.
+   2. **閒置中的玩家**仍保持在大廳中的「閒置」狀態，並可以進行其他操作。
+The **idle player** remains in the &#34;Idle&#34; state in the lobby and can perform other actions.
+
+2a. **遊戲伺服器啟動失敗** (**Game server startup failed**)：
+   1. 如果**房間創建者**無法啟動遊戲伺服器，遊戲大廳伺服器通知**閒置中的玩家**加入失敗，並讓他們重新選擇操作。
+If the **room creator** is unable to start the game server, the game lobby server informs the **idle players** that the join attempt has failed and prompts them to select another action.
+
+#### 例外狀況 (Exception)
+- **伺服器錯誤** (**Server error**)：
+   - 如果遊戲大廳伺服器無法請求或傳遞遊戲伺服器的IP和port號，則通知玩家出現錯誤，並允許玩家重新嘗試或進行其他操作。
+If the game lobby server fails to request or transmit the game server&#39;s IP and port number, it notifies the players of an error and allows them to retry or perform other actions.
+
+#### 後置條件 (poscondition)
+- **閒置中的玩家**成功連接到遊戲伺服器，並開始遊戲。
+The **idle player** successfully connects to the game server and starts the game.
+- **遊戲大廳伺服器**將房間內玩家狀態更新為「遊戲中」。
+The **game lobby server** updates the status of players in the room to &#34;In Game.&#34;
+- 若玩家拒絕邀請，則狀態保持為「閒置」並可繼續進行其他操作。
+If the player declines the invitation, their status remains &#34;Idle,&#34; and they can continue to perform other actions.
+
+## H.加入公開遊戲房間 (Join a public game room)
+#### 主要行為者 (primary actor)
+- **閒置中的玩家 (Idle Peer)**
+- **公開房間創建者 (Public Room Host)**
+
+#### 系統 (system)
+- **遊戲大廳伺服器 (Lobby Server)**
+- **遊戲伺服器 (Game Server)**
+
+#### 先決條件 (precondition)
+- 玩家已經登入遊戲大廳，並且狀態為「閒置」。
+The player has logged into the game lobby and their status is &#34;Idle.&#34;
+- 大廳中有公開的遊戲房間可供加入。
+There are public game rooms available to join in the lobby.
+
+#### 觸發事件 (trigger event)
+- 閒置中的玩家選擇加入一個公開遊戲房間功能。
+The idle player chooses to join a public game room.
+
+#### 主成功情境 (Main Success Scenario)
+1. **閒置中的玩家**在遊戲大廳中選擇一個公開遊戲房間加入。
+The **idle player** selects a public game room to join in the game lobby.
+2. **遊戲大廳伺服器**收到玩家的加入請求，並向房間創建者（房主）請求該房間的遊戲伺服器IP和port號。
+The **game lobby server** receives the player&#39;s join request and requests the game server&#39;s IP and port number for the room from the room creator (host).
+3. **房間創建者**開啟遊戲伺服器，並將IP和port號傳送給遊戲大廳伺服器。
+The **room creator** starts the game server and sends the IP and port number to the game lobby server.
+4. **遊戲大廳伺服器**將房間創建者的遊戲伺服器IP和port號發送給加入的玩家。
+The **game lobby server** sends the room creator&#39;s game server IP and port number to the joining player.
+5. **閒置中的玩家**使用接收到的IP和port號，連接到房間創建者的遊戲伺服器並成功加入遊戲。
+The **idle player** uses the received IP and port number to connect to the room creator&#39;s game server and successfully joins the game.
+6. **遊戲大廳伺服器**將房間狀態從「等待中」更新為「遊戲中」，並將房間內所有玩家的狀態更新為「遊戲中」。
+The **game lobby server** updates the room status from &#34;Waiting&#34; to &#34;In Game&#34; and changes the status of all players in the room to &#34;In Game.&#34;
+7. 遊戲開始。
+Game start
+
+#### 擴展情境 (Extensions)
+1a. **房間滿員** (**Room is full**)：
+   1. 如果房間已經滿員，遊戲大廳伺服器通知玩家無法加入該房間，並返回公開房間列表供玩家重新選擇。
+If the room is already full, the game lobby server notifies the player that they cannot join the room and returns them to the public room list for them to make another selection.
+
+2a. **遊戲伺服器啟動失敗** (**Game server startup failed**)：
+   1. 如果房間創建者無法啟動遊戲伺服器，遊戲大廳伺服器通知玩家加入失敗，並請玩家選擇其他公開房間。
+If the room creator is unable to start the game server, the game lobby server notifies the player of the failed joining attempt and prompts them to choose another public room.
+
+#### 例外狀況 (Exception)
+- **伺服器錯誤** (**server error**)：
+   - 如果遊戲大廳伺服器無法請求或傳遞遊戲伺服器的IP和port，將通知玩家出現錯誤，並請他們重新嘗試加入房間。
+If the game lobby server is unable to request or relay the game server&#39;s IP and port, it will notify the player of an error and prompt them to retry joining the room.
+
+#### 後置條件 (poscondition)
+- 玩家成功連接到遊戲伺服器，遊戲開始，並且房間狀態更新為「遊戲中」。
+The player successfully connects to the game server, the game starts, and the room status is updated to &#34;In Game.&#34;
+- 在公開列表中，玩家狀態更新為「遊戲中」。
+In the public list, the player&#39;s status is updated to &#34;In Game.&#34;
+
+## I.進行遊戲 (play game)
+#### 主要行為者 (primary actor)
+- **房間創建者 (Room Host)**
+- **房間加入者 (Room Participant)**
+
+#### 系統 (system)
+- **遊戲大廳伺服器 (Lobby Server)**
+- **遊戲伺服器 (Game Server)**
+
+#### 先決條件 (precondition)
+- **房間創建者**已經成功創建房間。
+The **room creator** has successfully created the room.
+- **房間加入者**已加入房間。
+The **room joiner** has successfully joined the room.
+
+#### 觸發事件 (trigger event)
+- 房間內滿兩人後，根據創建房間時選擇的遊戲自動開始。
+Once the room is filled with two players, the game will automatically start based on the game selected when the room was created.
+
+#### 主成功情境 (Main Success Scenario)
+1. **房間創建者**作為**遊戲伺服器**，開啟遊戲伺服器。
+The **room creator**, acting as the **game server**, has started the game server.
+2. **房間加入者**通過**遊戲大廳伺服器**取得**房間創建者**的IP與Port，並連接到遊戲伺服器。
+The **room joiner** obtains the **IP** and **port** of the **room creator** through the **game lobby server** and successfully connects to the game server.
+3. **房間創建者**與**房間加入者**進行遊戲。
+The **room creator** and **room joiner** begin the game, with both players actively participating in the gameplay. The game server manages their interactions and game state.
+4. 當遊戲結束後 (After the game ends)：
+   1. **遊戲伺服器**或**房間創建者**通知**遊戲大廳伺服器**遊戲已結束。
+&#34;The game server or room creator notifies the game lobby server that the game has ended.&#34;
+   2. **遊戲大廳伺服器**自動解散遊戲房間，並將兩位玩家的狀態更新為「閒置」。
+&#34;The game lobby server automatically dissolves the game room and updates the status of both players to &#39;idle&#39;.&#34;
+   3. 房間從公開房間列表中移除，兩位玩家可以繼續進行其他操作。
+&#34;The room is removed from the public room list, and both players can continue with other actions.&#34;
+
+#### 擴展情境 (Extensions)
+1a. **遊戲無法開始** (**The game cannot start**)：
+   1. 若遊戲伺服器無法啟動或發生錯誤，**遊戲大廳伺服器**將通知玩家錯誤，並允許重試或解散房間。
+If the game server fails to start or encounters an error, the **lobby server** will notify the players of the error and allow them to either retry or dissolve the room.
+   2. 若遊戲伺服器port已被綁定，**遊戲伺服器**應要能重新選擇可以綁定的port。(自動更換或通知**房間創建者**重新輸入等)
+If the game server port is already bound, the **game server** should be able to reselect a bindable port (either automatically change to an available port or notify the **room creator** to re-enter a port, etc.).
+
+2a. **房間加入者無法連接遊戲伺服器** (**The room joiner cannot connect to the game server**)：
+   1. 若**房間加入者**無法成功連接遊戲伺服器，將收到連接錯誤訊息，並可以選擇重新連接或退出房間。
+If the **room joiner** is unable to successfully connect to the game server, they will receive a connection error message and can choose to reconnect or exit the room.
+
+#### 例外狀況 (exception)
+- **伺服器錯誤** (**server error**)：
+   - 若**遊戲伺服器**或**遊戲大廳伺服器**在遊戲過程中發生錯誤，遊戲將被中止，並通知兩位玩家重新進行其他操作。
+If an error occurs in the **game server** or **lobby server** during the game, the game will be terminated, and both players will be notified to perform other operations.
+
+#### 後置條件 (postcondition)
+- **遊戲房間**自動解散，兩位玩家的狀態更新為「閒置」。
+The **game room** will automatically dissolve, and both players&#39; statuses will be updated to &#34;idle.&#34;
+- 兩位玩家可以在遊戲大廳中執行其他操作（如創建新房間、加入公開房間等）。
+Both players can perform other actions in the game lobby, such as creating a new room or joining a public room.
+
+## 流程示意圖 (Sequence Diagram)
+![Untitled diagram-2024-10-10-164255](https://hackmd.io/_uploads/S1iENYrykx.png)
+
+
+## 注意事項
+1.  圖片僅供同學更了解流程用，實作細節請以文字描述為主。
+The images are provided for students to better understand the process; please focus on textual descriptions for implementation details.
+2.  不限制實作語言。
+There are no restrictions on the implementation language
+3.	所有實作請使用TCP協定。
+All implementations must use the TCP protocol
+4.	所有使用到的port請設在10000以上。
+All ports used must be set above 10,000.
+5.	Demo時會請同學把兩支程式放到系計中Server上跑，建議開發時用系計中server測試為主。
+During the demo, students will be asked to run both programs on the server in the system. It is recommended to primarily test on the server in the system during development.
+6.	請避免使用系計中server沒有的library，以免不能正常執行。
+Please avoid using libraries that are not available on the server in the system to ensure proper execution
+7.	遊戲請設計2個以上，類型不限。
+Please design at least two games, of any type
+8.	Public room一定要顯示在公開列表中，Private room則可顯示可不顯示。
+Public rooms must be displayed in the public list, while private rooms can choose whether or not to display
+9.	所有client端之間的溝通，在遊戲開始前都應該透過lobby server進行。
+All communication between clients before the game starts should go through the lobby server
+10.	遊戲開始後是peer to peer的連線，遊戲判斷不需要透過lobby server。
+After the game starts, the connection is peer-to-peer, and game validation does not need to go through the lobby server
+11.	若沒有達成要求，會斟酌扣分，若在本作業不是以lobby server溝通的方式，你可能拿到零分。
+If the requirements are not met, points may be deducted. Specifically, if this assignment does not utilize lobby server communication, you may receive a score of zero.
+12.	若對題目有任何疑問，或是遇到實作上問題，歡迎同學在上機課的時候詢問助教，或是透過E3寄信發問，請盡量不要直接寄信，避免助教漏掉。
+If you have any questions about the assignment or encounter any implementation issues, feel free to ask the TA during lab sessions or send an inquiry via E3. Please try to avoid sending emails directly to prevent the TA from missing your message.
+13.	Demo deadline前可以重複Demo直到你分數滿意為止。
+You can repeat the demo until you are satisfied with your score before the demo deadline.
+
+## 評分標準 (Grading Criteria)
+1.  完整實作玩家遊戲大廳註冊的功能 (10%)
+Complete implementation of the player registration function in the game lobby (10%)
+2.	完整實作玩家遊戲大廳登入的功能 (10%)
+Complete implementation of the player login function in the game lobby (10%)
+3.  完整實作登出功能 (10%)
+Complete implementation of the logout function (10%)
+4.  完整實作大廳List功能 (10%)
+Complete implementation of the lobby list function (10%)
+5.  完整實作創建房間功能 (10%)
+Complete implementation of the room creation function (10%)
+6.  完整實作等待其他玩家邀請功能  (10%)
+Complete implementation of the functionality to wait for invitations from other players (10%)
+7.  完整實作加入遊戲房間功能  (10%)
+Complete implementation of the function to join game rooms (10%)
+8.	完整實作進行遊戲功能  (10%)
+Complete implementation of the function to play the game (10%)
+9.	遊戲趣味性(遊戲複雜度、遊戲特殊性) (10%)
+Game enjoyment (game complexity, uniqueness of the game) (10%)
+10. 防爆 (10%)
+Anti-cheat measures (10%)</div>
+    <!-- signin modal -->
+
+<div class="modal fade signin-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: 10px; right: 20px; position: absolute;"><span aria-hidden="true">&times;</span></button>
+            
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+<h3>登入</h3>
+
+<form data-toggle="validator" role="form" class="form-horizontal" method="post" enctype="application/x-www-form-urlencoded" id="signin-form">
+    <div class="hmd-dn"><input type="hidden" name="_csrf" value="jrd6h45F-tbWxKmve_v1pP6RXKvE7n_NxFx8"></div>
+    <div class="hmd-dn"><input type="hidden" name="create_team" value="false"></div>
+    <div class="hmd-dn"><input type="hidden" name="create_paid_team" value="false"></div>
+    
+    <div class="form-group  ">
+        <label for="email" class="control-label">Email</label>
+        <label for="inputEmail" class="control-label pull-right errors">
+            
+        </label>
+        <span class="help-block control-label with-errors pull-right" style="margin-top: 14px"></span>
+        <div class="input-block">
+            
+                <input type="email" class="form-control" name="email" placeholder="您的 Email" required autocomplete="email">
+            
+            <span class="error-sign"></span>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="password" class="control-label">密碼</label>
+        <label for="inputPassword" class="control-label pull-right errors">
+            
+        </label>
+        <span class="help-block control-label with-errors pull-right" style="margin-top: 14px"></span>
+        <div class="input-block">
+            <input type="password" class="form-control" name="password" placeholder="您的密碼" required autocomplete="current-password" maxlength="128">
+            <span class="error-sign"></span>
+            
+                <span class="control-label pull-right !text-normal !leading-normal !font-normal !mt-1.5"><a href="https://hackmd.io/settings/forgotPassword" style="text-decoration: underline;">忘記密碼</a></span>
+            
+        </div>
+    </div>
+
+    <div style="text-align: center; padding-top: 15px; margin-bottom: 0px;">
+        <div
+            hidden
+            id="hmd-captcha"
+            data-provider=""
+            data-captcha-data=""
+            class="flex justify-center"
+        ></div>
+
+        
+            <input type="submit" class="neo-btn neo-btn-primary !justify-center !py-3.5 !mx-auto" formaction="https://hackmd.io/login" value="登入">
+        
+
+        
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <p class="separator">或是</p>
+    
+
+    
+        <p>繼續登入，代表您同意<a href="https://hackmd.io/s/terms" target="_blank">服務條款</a>。</p>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="gsi-client" src="https://accounts.google.com/gsi/client" async defer nonce="7116a333-242a-4730-adb8-f0accbc2eaad"></script>
+<script nonce="7116a333-242a-4730-adb8-f0accbc2eaad">
+    function handleCredentialResponse(response) {
+        const form = document.getElementById('sign-in-with-google-form')
+        form.children.credential.value = response.credential
+        form.children.method.value = location.href.toLowerCase() === 'https://hackmd.io/settings#general' ? 'merge' : 'login'
+        form.submit()
+    }
+    var GSI_READY = new Promise(function (resolve) {
+        function initialize () {
+            google.accounts.id.initialize({
+                client_id: '911617723593-drikdibvvn63slfd6kbqigo8ql1no55s.apps.googleusercontent.com',
+                callback: handleCredentialResponse
+            })
+            const loginPath = '/login'
+            const joinPath = '/join'
+            const renderButton = function () {
+                google.accounts.id.renderButton(
+                    document.getElementById('sign-in-with-google-button'),
+                    { type: 'standard', width: 250 }
+                )
+            }
+            if (location.pathname.toLowerCase() === loginPath || location.pathname.toLowerCase() === joinPath) {
+                renderButton()
+            } else {
+                $('.signin-modal').one('shown.bs.modal', function () {
+                    renderButton()
+                })
+            }
+            resolve()
+        }
+
+        window.addEventListener('load', function () { initialize() })
+    })
+</script>
+<form class="hidden" id="sign-in-with-google-form" action="/auth/google" method="post">
+    <input type="hidden" name="credential">
+    <input type="hidden" name="method">
+</form>
+
+
+<div class="social-buttons-container">
+    
+    <div id="sign-in-with-google-button"></div>
+    
+    
+    <a href="https://hackmd.io/auth/facebook" class="btn btn-lg btn-block btn-social btn-facebook">
+        <i class="fa fa-facebook"></i> 透過 Facebook 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/twitter" class="btn btn-lg btn-block btn-social btn-twitter">
+        <i class="fa fa-twitter"></i> 透過 Twitter 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/github" class="btn btn-lg btn-block btn-social btn-github">
+        <i class="fa fa-github"></i> 透過 GitHub 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/dropbox" class="btn btn-lg btn-block btn-social btn-dropbox">
+        <i class="fa fa-dropbox"></i> 透過 Dropbox 登入
+    </a>
+    
+    
+    
+      <a href="#" class="bg-white btn btn-block btn-social btn-web3 bg-gray-800 hocus:bg-[#2b2b2b] text-white hocus:text-white">
+          <img src="https://hackmd.io/images/wallet.svg" style="max-height: 20px; margin-top: 8px; margin-left: 6px; border: none;">
+          <span class="sign-in-wallet-text">
+              錢包登入
+          </span>
+
+          <div class="inline-flex items-center justify-between w-full hidden web3-wallet-info">
+              <span>
+                   錢包
+                   (
+                    <span class="web3-wallet-address"></span>
+                   )
+              </span>
+
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </div>
+      </a>
+
+      <small class="web3-wallet-info hidden text-left hocus:text-white underline hocus:underline block pt-2 ui-disconnect-connected-wallets text-gray-600 cursor-pointer">
+          連結其他錢包
+      </small>
+    
+</div>
+
+
+
+
+    <div >
+        <p>第一次使用 HackMD？ <a href="https://hackmd.io/join" class="plausible-event-name=LoginModalSignUp">註冊</a></p>
+    </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+    
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-NGVZMM6DR6"></script>
+    <script nonce="7116a333-242a-4730-adb8-f0accbc2eaad">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        let userid = (document.cookie.match('(^|; )userid=([^;]*)')||0)[2];
+        gtag('config', 'G-NGVZMM6DR6', {'user_id': userid});
+        
+    </script>
+
+
+    
+<script src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js" crossorigin="anonymous"></script>
+<script nonce="7116a333-242a-4730-adb8-f0accbc2eaad">Sentry.init({ dsn: 'https://73410f1915d84abc8b2dd1f1aabd1c82@sentry.hackmd.dev/4', environment: 'production', integrations: function (intrus) { return intrus.filter(function (itr) { return itr.name !== 'TryCatch' }) } });</script>
+
+
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLW9Z3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <script src="https://hackmd.io/api/i18n.js"></script>
+     <script src="https://assets.hackmd.io/build/font-vendor.eaa8dd82d4e056021b8c.js" defer="defer"></script><script src="https://assets.hackmd.io/build/common-vendor.04da453a2a68f624f4d4.js" defer="defer"></script><script src="https://assets.hackmd.io/build/pretty-vendor.94ca39727118897623cd.js" defer="defer"></script><script src="https://assets.hackmd.io/build/pretty-common.e537850a918313f6b528.js" defer="defer"></script><script src="https://assets.hackmd.io/build/pretty.5c453ae0ddb0114022c9.js" defer="defer"></script>
+
+    
+
+</body>
+</html>
